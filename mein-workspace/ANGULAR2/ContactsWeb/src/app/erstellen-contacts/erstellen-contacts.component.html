@@ -1,0 +1,116 @@
+<div class="container spacer">
+  <div class="panel panel-default">
+    <h2>New Contact</h2>
+    <!-- Avec value: werden alle Daten der Formular gesendet -->
+<form #contactForm="ngForm" (ngSubmit)="saveContact(contactForm.value)" novalidate>
+  <div class="form-group">
+        <label class="control-label" for="nom">Nom:</label>
+    <!-- #nom = ceci veut dire kj'ai une variable locale ki s'appelle nom -->
+        <input type="text"  [(ngModel)]="newContact.nom"   nomPattern="^[a-zA-Z ]$"
+               required minlength="5" maxlength="40" #nom="ngModel" class="form-control"
+               name="nom" id="nom" placeholder="Nom angeben">
+    <div *ngIf="nom.errors && (nom.dirty || nom.touched) && nom.value.length != null"
+         class="alert alert-danger">
+      <div [hidden]="!nom.errors.nomPattern">
+        Nom is invalid.
+      </div>
+      <div [hidden]="!nom.errors.required">
+        Nom is required.
+      </div>
+      <div [hidden]="!nom.errors.minlength">
+        Nom must be at least 5 characters long
+      </div>
+      <div [hidden]="!nom.errors.maxLength">
+        Nom cannot be more than 30 characters long
+      </div>
+    </div>
+  </div>
+
+    <div class="form-group">
+        <label class="control-label" for="prenom">Prenom:</label>
+        <input type="text" [(ngModel)]="newContact.prenom" required minlength="5" maxlength="40"
+               class="form-control" #prenom="ngModel" name="prenom" id="prenom" placeholder="Indique le Prenom">
+      <div *ngIf="prenom.errors && (prenom.dirty || prenom.touched) && prenom.value.length != null"
+           class="alert alert-danger">
+        <div [hidden]="!prenom.errors.required">
+          prenom is required.
+        </div>
+        <div [hidden]="!prenom.errors.minlength">
+          prenom must be at least 5 characters long
+        </div>
+        <div [hidden]="!prenom.errors.maxLength">
+          prenom cannot be more than 30 characters long
+        </div>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <label class="control-label" for="password">Password:</label>
+    <!-- #nom = ceci veut dire kj'ai une variable locale ki s'appelle nom -->
+    <input type="text"  [(ngModel)]="newContact.password"   nomPattern="'((?=.*\d)(?=.*[a-zA-Z]).{4,20})'"
+           required minlength="5" maxlength="40" #nom="ngModel" class="form-control"
+           name="password" id="password" placeholder="Password angeben">
+    <!--<div *ngIf="form.controls.confirmPasswor.errors?.MutchPassword" class="alert alert-danger">-->
+      <!--<div [hidden]="">-->
+        <!--Passord not match-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+
+
+  <div class="form-group">
+    <label class="control-label" for="retype_password">Retype Password:</label>
+    <!-- #nom = ceci veut dire kj'ai une variable locale ki s'appelle nom -->
+    <input type="text"  [(ngModel)]="newContact.password"   nomPattern="'((?=.*\d)(?=.*[a-zA-Z]).{4,20})'"
+           required minlength="5" maxlength="40" #nom="ngModel" class="form-control"
+           name="retype_password" id="retype_password" placeholder="Password angeben">
+    <!--<div *ngIf="form.controls.confirmPasswor.errors?.MutchPassword" class="alert alert-danger">-->
+    <!--<div [hidden]="">-->
+    <!--Passord not match-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="email">Email:</label>
+    <!-- email est la validation ici-->
+    <input type="email" [(ngModel)]="newContact.email" required email class="form-control"
+           name="email" #email="ngModel" id="email" placeholder="Email eingeben">
+    <div *ngIf="email.errors && (email.dirty || email.touched)"
+         class="alert alert-danger">
+      <div [hidden]="!email.errors.email">
+       Must be a valid Email
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="dateId">Date de Naissance:</label>
+        <input type="date" [(ngModel)]="newContact.dateNaissance"  required
+               DatePattern="/^\d{1,2}\.\d{1,2}\.\d{4}$/" class="form-control" #dateNaissance="ngModel"
+               name="dateId" id="dateId" placeholder="Indique la Date de Naissance">
+    <div *ngIf="dateNaissance.errors && (dateNaissance.dirty || dateNaissance.touched)"
+         class="alert alert-danger">
+      <div [hidden]="!dateNaissance.errors.DatePattern">
+        Must be a valid dateNaissance
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label" for="telId">Tel:</label>
+        <input type="telefon" [(ngModel)]="newContact.tel" required class="form-control"
+               pattern="^[0-9\-\+]{9,15}$" #tel="ngModel" name="telId" id="telId" placeholder="Indique le Telephone">
+      <div *ngIf="tel.errors && (tel.dirty || tel.touched)"
+           class="alert alert-danger">
+        <div [hidden]="!tel.errors.pattern">
+          Must be a valid tel
+        </div>
+     </div>
+  </div>
+  <!-- [disabled]="!contactForm.valid": ceci permet k le boutton Speichern ne soit actif k si ttes les condition sont validés -->
+  <button class="btn btn-success"  routerLink="/contacts" type="submit" [disabled]="!contactForm.valid" (click)="saveContact(contactForm)">Speichern</button>
+  <button class="btn btn" routerLink="/logout">Abbrechen</button>
+</form>
+  </div>
+</div>

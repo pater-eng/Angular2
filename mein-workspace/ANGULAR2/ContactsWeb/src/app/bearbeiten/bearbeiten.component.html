@@ -1,0 +1,40 @@
+<div class="container">
+    <h2>Update</h2>
+            <div class="form-group">
+               <label for="name">Name:</label>
+              <!--[(ngModel)]: fais la liaison ki est bearbeiten.nom. La condition est ke je declare le Module: FormsModule ds app.module afin k ca puisse fonctionner -->
+              <input type="text" id="name" class="form-control" [(ngModel)]="bearbeiten.nom" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label>Vorname:
+                </label>
+              <input type="text" id="vorname" class="form-control" [(ngModel)]="bearbeiten.prenom" placeholder="vorname">
+            </div>
+            <div class="form-group">
+              <label>Password:
+              </label>
+              <input type="text" id="password" class="form-control" [(ngModel)]="bearbeiten.password" placeholder="password">
+            </div>
+            <div class="form-group">
+                <label for="date">Geburtsdatum:
+                </label>
+              <input type="date" id="date" class="form-control" [(ngModel)]="bearbeiten.dateNaissance" placeholder="date">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:
+                </label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="bearbeiten.email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="telefon">Telefon:
+                </label>
+              <input type="text" id="telefon" class="form-control" [(ngModel)]="bearbeiten.tel" placeholder="tel">
+            </div>
+            <div class="form-group">
+                <label for="photo">Photo:
+                </label>
+              <input type="photo" id="photo"  class="form-control" [(ngModel)]="bearbeiten.photo" placeholder="photo">
+            </div>
+              <button class="btn btn-success" (click)="updateContact()">update</button>
+              <button class="btn btn" routerLink="/contacts">Abbrechen</button>
+</div>

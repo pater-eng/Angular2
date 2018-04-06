@@ -1,0 +1,64 @@
+<button routerLink="/home" class="btn btn-primary">Home</button>
+<button routerLink="/logout" class="btn btn-primary">LogOut</button>
+  <div class="container spacer">
+    <div class="panel panel-primary">
+      <div class="panel-body">
+        <div class="form-group">
+           <label>Suchen Wort: </label>
+          <!--[(ngModel)]: fais la liaison ki est suchenwort. La condition est ke je declare le Module: FormsModule ds app.module -->
+            <input type="text" [(ngModel)]="suchenWort" placeholder="Contact suchen" auto-complete="auto">
+            <button class="btn btn-primary" (click)="suchen()">suchen</button>
+        </div>
+        <div class="panel-heading"> <strong> Liste des contacts </strong> </div>
+        <br/>
+        <table class="table table-striped">
+          <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Prénom</th>
+              <th>Password</th>
+              <th>Email</th>
+              <th>Date de Naissance</th>
+              <th>Telefon</th>
+              <th>Delete</th>
+              <th>Information</th>
+              <th>Bearbeiten</th>
+          </tr>
+          <!-- le point d'interrogation dit k si l'object differe de null, il sera executé  -->
+          <!-- ? si la pageContacts nest pas encore initialisé alors il considere le tableau ki est deja en place, sinon il actualise le tout. -->
+          <tr *ngFor="let c of pageContacts?.content | reverse">
+            <td>{{c.id}}</td>
+            <!-- | slice : 0 : 3: das ein Pipe und ceci de n'afficher k les 3 premiere lettre de ts les noms. on commence par 0 juska 2 -->
+            <!--<td>{{c.nom | slice : 0 : 3}}</td>-->
+            <!-- mit reverse le nom sera retourne a l'envers-->
+            <td>{{c.nom | reverse}}</td>
+            <td>{{c.prenom}}</td>
+            <td>{{c.password}}</td>
+            <td>{{c.email}}</td>
+            <!-- diese | ist ein Pipe, der date hier heisst und gibt das Datum zurück-->
+            <td>{{c.dateNaissance | date : 'dd.MM.yyyy'}}</td>
+            <!--<td>{{c.dateNaissance | date : 'shortDate'}}</td>-->
+            <!--<td>{{c.dateNaissance | date : 'longDate'}}</td>-->
+            <td>{{c.tel}}</td>
+            <td> <button class="btn btn-danger" (click)="deleteContact(c)">Delete Contact</button></td>
+            <!-- im Button muss für die 2 Alternative diese (click)="saveContactLs(c)"  hinzufügen-->
+            <td><button class="btn btn-info" routerLink="/about/{{c.id}}">Info Contact</button></td>
+            <td><button class="btn btn-success" (click)="onEditContact(c.id)" >Beabeiten Contact</button></td>
+            <!-- ceci est l'alternative a ce ki est -->
+            <!--<td><button class="btn btn-primary" routerLink="/bearbeiten/{{c.id}}">Beabeiten Contact</button></td>-->
+          </tr>
+        </table>
+        <div class="container">
+          <ul class="nav nav-pills">
+            <!-- [ngClass]="{'active': i == currentPage}" : la page actuelle sera activé grace a ceci. ca c'est la condition :i == currentPage -->
+            <!-- let i = index + {{i}: permettent d'afficher les Index des pages -->
+            <!-- gotoPage(i): permet d'aller a la page suivante -->
+              <li [ngClass]="{'active italic': i == currentPage}" *ngFor=" let p of pages; let i = index" class="clickable">
+                <a class="clickable" (click)="gotoPage(i)">{{i}}</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+

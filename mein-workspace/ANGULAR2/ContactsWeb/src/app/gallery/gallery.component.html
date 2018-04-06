@@ -1,0 +1,46 @@
+<div class="container spacer">
+  <div class="panel panel-primary">
+   <h2>
+     <strong>Gallery Component</strong>
+   </h2>
+    <div class="panel-body">
+      <!-- f.value : ici je transmet les donnees k je saisi ds le formulaire -->
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+          <div class="form-group">
+            <label>sucheWort: </label>
+            <!-- required fait du suchWort 1 Feld obligatoire-->
+            <input type="text" name="wortSuche" ngModel required>
+            <button type="submit" class="btn btn-primary"> suche</button>
+          </div>
+      </form>
+      <!-- mit *ngIf wenn pagePhotos Fotos enthält, dann werden diese angezeigt ansonstens nichts.-->
+      <div *ngIf="pagePhotos">
+      <div class="row">
+      <div *ngFor="let im of pagePhotos?.hits" class="col-md-3">
+          <div class="panel panel-primary cadre">
+            <div class="panel-heading">
+              <img class="img-circle" src="{{im.userImageURL}}" width="50" height="50">
+
+            </div>
+            <div class="panel-body">
+              <div>
+                <p>User:{{im.user}}</p>
+                <p>Tag:{{im.tags}}</p>
+              </div>
+              <img src="{{im.previewURL}}">
+            </div>
+          </div>
+      </div>
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="nav nav-pills">
+        <ul>
+          <li *ngFor="let p of pagesFoto">{{pagesFoto}}</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

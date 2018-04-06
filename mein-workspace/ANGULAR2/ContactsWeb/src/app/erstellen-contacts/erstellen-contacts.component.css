@@ -1,0 +1,9 @@
+
+/*wenn alle Felder validieren sins, wird dann auf gründ gesetzt*/
+.ng-valid[required], .ng-valid.required{
+  border-left: 5px solid #42A948;
+}
+/*solange die Felder nicht validieren sind, bleiben diese rote*/
+.ng-invalid:not(form){
+  border-left: 5px solid #a94442;
+}
