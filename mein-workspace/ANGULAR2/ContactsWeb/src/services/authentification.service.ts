@@ -13,6 +13,7 @@ import {map} from 'rxjs/operators';
 export class AuthentificationService {
 
   contact: any;
+  dennis: any;
   authenticated: boolean;
   constructor(private http: Http) { }
 
