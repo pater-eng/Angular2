@@ -1,0 +1,12 @@
+<scheme name="_@user_Darcula" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2018-03-29T13:35:57</property>
+    <property name="ide">WebStorm</property>
+    <property name="ideVersion">2018.1.0.0</property>
+    <property name="modified">2018-03-29T14:07:04</property>
+    <property name="originalScheme">Darcula</property>
+  </metaInfo>
+  <colors>
+    <option name="NOTIFICATION_BACKGROUND" value="ffffb4" />
+  </colors>
+</scheme>
