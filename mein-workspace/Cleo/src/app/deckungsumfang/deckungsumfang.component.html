@@ -1,0 +1,102 @@
+<div class="panel " id="deckungsumfangAngaben">
+  <div class="panel-header " id="header">Deckungsumfang</div>
+       <div class="panel-body " id="body">
+
+
+               <app-combobox [labelText]="' Schadensfreiheitsrabatt Haftpflicht'"
+                             [listValues]="schadensfreiheitsrabatte"
+                             [isRequired]="true" [comboboxControl]="deckungsumfangForm.get('schadensfreiheitsrabattHaftpflichtGroup')">
+
+               </app-combobox>
+
+              <app-combobox [labelText]="'SF-Regelung'"
+                            [listValues]="sFRegelungen"
+                            [comboboxControl]="deckungsumfangForm.get('sFRegelungGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Kasko und Selbstbeteiligung'"
+                            [listValues]="kasko_und_selbstbeteiligungen"
+                            [isRequired]="true"
+                            [comboboxControl]="deckungsumfangForm.get('kaskoSelbstbeteiligungGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Deckungssummen in der Kfz-Haftpflicht'"
+                            [listValues]="deckungssummer_in_derk_kfz_haftpflicht"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('deckungssummenKfzHaftpflichtGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Schutzbriefleistungen'"
+                            [listValues]="schutzbriefleistungen"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('schutzbriefleistungenGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Verbesserte Zweitwagenregelung für PKW'"
+                            [listValues]="verbesserte_zweitwagenregelegung_fuer_pkw"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('verbesserteZweitwagenregelungPKWGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Rabattschutz'" [listValues]="rabattschutz"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('rabattschutzGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Rabattretter für PKW'"
+                            [listValues]="rabattretter_fuer_pkw"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('rabattretterPKWGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Fahrerschutz'" [listValues]="fahrerschutz"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('fahrerschutzGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Werkstattbindung'"
+                            [listValues]="werksattbindungen"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('werkstattbindungGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Auslandsschutz'"
+                            [listValues]="auslandsschutzen"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('auslandsschutzGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Rabattübertragung'"
+                            [listValues]="rabattuebertragungen"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('rabattuebertragunggroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'Mallorcapolice'"
+                            [listValues]="mallorcapolice"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('mallorcapoliceGroup')">
+
+              </app-combobox>
+
+              <app-combobox [labelText]="'GAP Deckung'"
+                            [listValues]="gap_deckung"
+                            [isFragezeichen]="true"
+                            [comboboxControl]="deckungsumfangForm.get('gAPDeckungGroup')">
+
+              </app-combobox>
+
+      </div>
+
+</div>

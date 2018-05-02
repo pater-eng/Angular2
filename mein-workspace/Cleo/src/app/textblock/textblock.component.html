@@ -1,0 +1,25 @@
+      <div class="editdiv">
+        <label for="kennzeichenBlock1" class="edit required">
+          {{labelText}}
+        </label>
+        <span class="value ">
+          <span style="display:inline">
+                  <input id="kennzeichenBlock1" type="text"
+                         name="kennzeichenBlock1"
+                         class="kennzeichenBlock1" maxlength="3" [formControl]="textblockControl"
+                         style="width:25px; float: left; text-transform: uppercase;">
+                <span style="padding-right:3px;"> - </span>
+                <input id="kennzeichenBlock2" type="text" [formControl]="textblockControl"
+                       name="kennzeichenBlock2" class="kennzeichenBlock2"
+                       maxlength="2"  style="width:25px; text-transform: uppercase;">
+                <input id="kennzeichenBlock3" type="text" name="kennzeichenBlock3" [formControl]="textblockControl"
+                       class="kennzeichenBlock3" maxlength="4"  style="width:40px">
+
+             <div *ngIf="textblockControl.invalid && isParentTouched(textblockControl.parent) && isRequired"  class="errors" style="color: #a31f42;">
+                Wert erforderlich
+            </div>
+
+          </span>
+      </span>
+      </div>
+

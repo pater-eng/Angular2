@@ -1,0 +1,78 @@
+<div class="panel">
+  <div class="panel-header ">
+    <span>
+      <label>{{vertragsart}}</label>
+      <label class="posRight">Kein bestehender Vertrag</label>
+
+     <input  type="checkbox"
+             [ngModel]="neuvertrag"
+             (ngModelChange)="toggleNeuvertrag($event)"
+             class="posRight">
+    </span>
+  </div>
+
+  <!--NeuerVertrag-------------------------------------------------------------->
+  <div  *ngIf="neuvertrag" class="panel-body ">
+    <div>
+
+    </div>
+  </div>
+
+  <div  *ngIf="!neuvertrag" class="panel-body ">
+    <div>
+
+      <!-- Versicherungsgesellschaften -->
+      <app-combobox [labelText]="'Versicherungsgesellschaft'" [listValues]="versicherungsgeselschaft"
+                    [isRequired]="true" [comboboxControl]="bestehenderVertragForm.get('versicherungsgesellschaftGroup')">
+
+      </app-combobox>
+
+      <!-- versicherungsscheinnummer -->
+
+      <app-textfeld [labelText]="'Versicherungsschein-Nr.'" [normal]="true" [textControl]="bestehenderVertragForm.get('versicherungscheinNrGroup')" >
+      </app-textfeld>
+
+      <!-- Vertragsbeginn -->
+
+<app-datefeld [labelText]="'Vertragsbeginn'"  [isRequired]="true"
+              [datefeldControl]="bestehenderVertragForm.get('vertragsbeginnGroup')">
+
+</app-datefeld>
+
+<!-- Vertragsende -->
+
+<app-datefeld [labelText]="'Vertragsende'"
+              [isRequired]="true"
+              [datefeldControl]="bestehenderVertragForm.get('vertragsendeGroup')">
+</app-datefeld>
+
+<app-textfeld [unit]="'€'" [labelText]="'Beitrag brutto (gem. Zahlweise)'" name="beitragBrutto" [normal]="true"
+              [isRequired]="true" [textControl]="bestehenderVertragForm.get('beitragBruttoGroup')">
+</app-textfeld>
+
+<!-- Zahlweise -->
+
+<app-combobox [labelText]="'Zahlweise'" [listValues]="zahlweise" [isRequired]="true"
+              [comboboxControl]="bestehenderVertragForm.get('zahlweiseGroup')">
+</app-combobox>
+
+<!-- Kündigung -->
+<app-combobox [labelText]="'Kündigung'" [listValues]="kuendigung"
+              [isRequired]="true" [comboboxControl]="bestehenderVertragForm.get('kuendigungGroup')">
+</app-combobox>
+
+<!-- Versicherungsgesellschaft anschreiben? -->
+
+<app-checkbox [labelText]="'Versicherungsgesellschaft anschreiben?'"
+                [isFragezeichen]="true" [checkboxControl]="bestehenderVertragForm.get('versicherungsgesellschaftAnschreiben')">
+</app-checkbox>
+
+</div>
+</div>
+
+
+
+
+</div>
+
+

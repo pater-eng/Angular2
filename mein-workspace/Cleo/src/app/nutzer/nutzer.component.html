@@ -1,0 +1,94 @@
+<div class="panel ">
+  <div class="panel-header " id="header">Nutzer</div>
+    <div class="panel-body " id="body">
+
+      <app-combobox [labelText]="'Anrede'"
+                    [isRequired]="true"
+                    [listValues]="anrede"
+                    [comboboxControl]="nutzerForm.get('anredeGroup')">
+      </app-combobox>
+
+      <app-textfeld [labelText]="'Vorname'" [isRequired]="true" [normal]="true"  [textControl]="nutzerForm.get('vornameGroup')"></app-textfeld>
+      <app-textfeld [labelText]="'Nachname'" [isRequired]="true"  [normal]="true" [textControl]="nutzerForm.get('nachnameGroup')"></app-textfeld>
+      <app-textfeld [labelText]="'Ort'" [isRequired]="true" [normal]="true"  [textControl]="nutzerForm.get('ortGroup')"></app-textfeld>
+      <app-textfeld [labelText]="'Postleitzahl'"  [normal]="true" [textControl]="nutzerForm.get('postleitzahlGroup')"></app-textfeld>
+
+      <app-combobox [labelText]="'Bezug zu VN'" [isRequired]="true"
+                    [listValues]="bezugVN"
+                    [comboboxControl]="nutzerForm.get('bezugVNGroup')">
+
+      </app-combobox>
+      <app-combobox [labelText]="'Berufsgruppe'" [isRequired]="true" [listValues]="berufsgruppe"
+                    [comboboxControl]="nutzerForm.get('berufsgruppeGroup')">
+
+      </app-combobox>
+      <app-combobox [labelText]="'Familienstand'" [listValues]="familienstand"
+                    [comboboxControl]="nutzerForm.get('berufsgruppeGroup')"></app-combobox>
+
+      <app-radio [labelText]="'Familie'" [isRequired]="true"
+                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('familieGroup')">
+
+      </app-radio>
+      <app-radio [labelText]="'Nutzer lebt in häuslicher Gemeinschaft mit VN'" [isRequired]="true"
+                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('nutzerhaeuslicherGemeinschaftVNGroup')">
+
+      </app-radio>
+
+      <app-datefeld [labelText]="'Führerscheindatum'" [isRequired]="true"
+                    [datefeldControl]="nutzerForm.get('fuehrerscheindatumGroup')">
+      </app-datefeld>
+
+
+      <app-radio [labelText]="'Hat der Nutzer seinen Führerschein in einem Land der EU (+Beitrittsgebiete) erworben?'"
+                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('hatNutzerFuehrerscheinInEinemLandDerEUErworbenGroup')">
+
+      </app-radio>
+
+      <app-radio [labelText]="'Nutzer hat den Führerschein in den letzten 10 Jahren durchgehend besessen'"
+                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessenGroup')">
+
+      </app-radio>
+
+      <app-checkbox [labelText]="'Wohnsitz seit mind. 10 Jahren in BRD?'"
+                   [isFragezeichen]="true"
+                    [checkboxControl]="nutzerForm.get('wohnsitzSeitMind10JahrenInBRD')">
+
+      </app-checkbox>
+
+      <app-datefeld [labelText]="'Sicherheitstraining absolviert?'"
+                    [isFragezeichen]="true"
+                    [datefeldControl]="nutzerForm.get('sicherheitstrainingAbsolviertGroup')">
+      </app-datefeld>
+      <app-combobox [labelText]="'Nutzung'" [listValues]="nutzungen" [isRequired]="true"
+                    [comboboxControl]="nutzerForm.get('nutzungGroup')">
+      </app-combobox>
+
+      <app-datefeld [labelText]="'Geburtsdatum'"
+                    [isRequired]="true"
+                    [datefeldControl]="nutzerForm.get('geburtsdatumGroup')">
+      </app-datefeld>
+
+      <app-radio [labelText]="'Begleitetes Fahren bei Nutzer'"
+                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('begleitetesFahrenBeiNutzerGroup')">
+
+      </app-radio>
+      <app-radio [labelText]="'Eintrag im Verkehrszentralregister (Flensburg)'"
+                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('eintragImVerkehrszentralregisterGroup')">
+
+      </app-radio>
+      <app-radio [labelText]="'Ist ein Hauptnutzer'"
+                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [radioControl]="nutzerForm.get('istEinHauptnutzerGroup')">
+
+      </app-radio>
+      <button  type="submit" (click)="entfernenVon.emit()">
+              Diesen Nutzer entfernen
+      </button>
+    </div>
+</div>
