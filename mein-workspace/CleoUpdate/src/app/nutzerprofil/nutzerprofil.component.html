@@ -1,0 +1,141 @@
+<div class="panel " >
+  <div class="panel-header " id="header">Nutzerprofil</div>
+  <div class="panel-body "  id="body">
+
+
+    <app-combobox [labelText]="'Nutzung'"
+                  [isRequired]="true"
+                  [listValues]="nutzungen"
+                  [comboboxControl]="nutzerprofilForm.get('nutzungGroup')">
+
+    </app-combobox>
+
+    <!-- Jaehrliche Fahrleistung -->
+    <app-textfeld [labelText]="'Jährliche Fahrleistung'"
+                  [isFragezeichen]="true"
+                  [isRequired]="true" [normal]="true"
+                  [textControl]="nutzerprofilForm.get('jaehrlicheFahrleistungGroup')">
+
+    </app-textfeld>
+
+    <!-- nutzerKreis -->
+
+    <app-combobox [labelText]="'Nutzerkreis'"
+                  [isRequired]="true"
+                  [listValues]="nutzerkreis"
+                  [comboboxControl]="nutzerprofilForm.get('nutzerkreisGroup')">
+
+    </app-combobox>
+
+
+      <app-radio [labelText]="'VN ist Hauptnutzer'" [isFragezeichen]="true"
+                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                 [isRequired]="true" [radioControl]="nutzerprofilForm.get('vnHauptnutzerGroup')">
+     </app-radio>
+
+
+       <app-radio [labelText]="'VN ist Fahrer'" [isFragezeichen]="true"
+                  [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+                  [isRequired]="true" [radioControl]="nutzerprofilForm.get('vnFahrerGroup')">
+
+    </app-radio>
+
+
+    <div class="panel-body" *ngFor="let person of weiterPersonen">
+      <app-nutzer [nutzerForm]="nutzerprofilForm.get('nutzerGroup')" (entfernenVon)="entferne(person)" ></app-nutzer>
+    </div>
+
+    <button  style="display: block; width: 186px;
+                background-color: #d6004e; color: white;
+                font-size: initial; padding: 2px 10px 2px 10px;
+                margin: 10px"  (click)="hinzufuegenWeiterPerson()" >
+      Weitere Person hinzufügen
+    </button>
+
+
+    <app-checkbox [labelText]="'Begleitetes Fahren bei VN'"
+                  [isRequired]="true"  [isFragezeichen]="true"
+                  [checkboxControl]="nutzerprofilForm.get('begleitetesFahrerVNGroup')">
+
+    </app-checkbox>
+
+
+    <app-checkbox [labelText]="'Eintrag im Verkehrszentralregister (VN)'"
+                                [isFragezeichen]="true"
+                                [checkboxControl]="nutzerprofilForm.get('eintragVerkehrszentralregisterGroup')">
+
+  </app-checkbox>
+
+    <app-checkbox [labelText]="'Zweitwagen'"
+                  [checkboxControl]="nutzerprofilForm.get('zweitwagenGroup')">
+
+    </app-checkbox>
+
+
+    <!-- Ende Zweitwagen -->
+
+    <!-- abstellPlatz -->
+    <app-combobox [labelText]="'Abstellplatz'" [listValues]="abstellplaetze"
+                  [isRequired]="true"
+                  [comboboxControl]="nutzerprofilForm.get('abstellplatzGroup')">
+
+    </app-combobox>
+
+
+    <!-- Wohneigentum -->
+    <app-combobox [labelText]="'Wohneigentum'"
+                  [listValues]="wohneigentueme"
+                  [comboboxControl]="nutzerprofilForm.get('wohneigentumGroup')">
+
+    </app-combobox>
+
+
+    <app-checkbox [labelText]="'Existenzgründer'"
+                  [isFragezeichen]="true"
+                  [checkboxControl]="nutzerprofilForm.get('existenzgruenderGroup')"></app-checkbox>
+    <app-checkbox [labelText]="'  EU-Führerschein'"
+                  [isFragezeichen]="true"
+                  [checkboxControl]="nutzerprofilForm.get('euFuehrerscheinGroup')"></app-checkbox>
+    <app-checkbox [labelText]="'Betriebsausgabe'"
+                  [isFragezeichen]="true"
+                  [checkboxControl]="nutzerprofilForm.get('betriebsausgabeGroup')"></app-checkbox>
+
+
+    <!-- Finanzierung -->
+    <app-combobox [labelText]="'Finanzierungsart'" [listValues]="finanzierungsarte"
+                  [isRequired]="true"
+                  [comboboxControl]="nutzerprofilForm.get('finanzierungsartGroup')">
+
+    </app-combobox>
+
+    <app-checkbox [labelText]="'VN steuerabzugsberechtigt'"
+                  [isFragezeichen]="true"
+                  [checkboxControl]="nutzerprofilForm.get('vnSteuerabzugsberechtigGroup')">
+
+    </app-checkbox>
+
+
+   <!-- Auslandnutzung -->
+
+    <app-combobox [labelText]="'Nutzung im Ausland'" [listValues]="nutzung_im_Ausland"
+                  [comboboxControl]="nutzerprofilForm.get('nutzungAuslandGroup')"
+                  [isRequired]="true">
+
+    </app-combobox>
+
+    <app-radio [labelText]="'Saison-Kennzeichen'"  [isRequired]="true"
+               [beschreibung]="[{desc:'Normalzulassung'},{ desc:'Saisonzulassung'},{ desc: 'Wechselkennzeichen'}]"
+               [radioControl]="nutzerprofilForm.get('saisonKennzeichenGroup')">
+
+    </app-radio>
+
+    <app-radio [labelText]="' Vorschäden in den letzten 3 Jahren'"  [isRequired]="true"
+               [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+               [radioControl]="nutzerprofilForm.get('vorschaedenLetztenDreiJahrenGroup')">
+
+    </app-radio>
+
+  </div>
+
+
+</div>

@@ -1,0 +1,113 @@
+<div class="panel " id="fahrzeugAngaben">
+  <div class="panel-header " id="fahrzeugAngaben_header">Fahrzeugangaben</div>
+  <div class="panel-body " id="fahrzeugAngaben_body">
+
+    <!-- kennzeichen-->
+    <app-textblock [labelText]="'Kennzeichen (z.B. A-B 123)'" [isRequired]="true"
+                   [textblockControl]="fahrzeuganbagenForm.get('kennzeichen1_Group')">
+
+    </app-textblock>
+
+    <app-combobox [labelText]="'Zulassungsbezirk'"
+                  [listValues]="zulassungsbezirk"
+                  [isRequired]="true"
+                  [comboboxControl]="fahrzeuganbagenForm.get('zulassungsbezirkGroup')">
+
+    </app-combobox>
+
+    <!-- ErstzulassungDatum-->
+    <app-datefeld [labelText]="'Erstzulassungsdatum'"
+                  [isRequired]="true"
+                  [datefeldControl]="fahrzeuganbagenForm.get('erstzulassungsdatumGroup')">
+
+    </app-datefeld>
+
+    <app-datefeld [labelText]="'Datum des Fahrzeugerwerbs'"
+                  [isRequired]="true"
+                  [datefeldControl]="fahrzeuganbagenForm.get('datumFahrzeugerwerbsGroup')">
+
+    </app-datefeld>
+
+    <app-combobox [labelText]="'Erstbesitz'" [listValues]="erstbesitz"
+                  [isFragezeichen]="true"
+                  [comboboxControl]="fahrzeuganbagenForm.get('erstbesitzGroup')">
+
+    </app-combobox>
+
+
+    <app-textfeld [labelText]="'KFZ-Suchfeld'"
+                  [isFragezeichen]="true" [normal]="true"
+                  [unit]="'Modell PS KW ccm³ HSN TSN'"
+                  [textControl]="fahrzeuganbagenForm.get('kFZSuchfeldGroup')">
+
+    </app-textfeld>
+
+							<!-- herstellerNr-->
+    <app-textfeld [isFragezeichen]="true" [labelText]="'Hersteller-Nr.'"
+                  [isRequired]="true" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('herstellerNrGroup')">
+
+    </app-textfeld>
+
+    <!-- typSchluessel-->
+
+    <app-textfeld [isFragezeichen]="true" [labelText]="'Typschlüssel-Nr'"
+                  [isRequired]="true" maxlength="40" [normal]="true"
+                  [labelText]="typschluesselNr" id="typschluesselNr"
+                  [textControl]="fahrzeuganbagenForm.get('typschluesselNrGroup')">
+
+    </app-textfeld>
+
+							<!-- fahrzeugMarke-->
+    <app-textfeld [labelText]="'Fahrzeugmarke'" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('fahrzeugmarkeGroup')">
+
+    </app-textfeld>
+
+    <!-- fahrzeugTyp-->
+    <app-textfeld [labelText]="'Fahrzeugtyp'"
+                  [textControl]="fahrzeuganbagenForm.get('fahrzeugtypGroup')">
+
+    </app-textfeld>
+
+    <!-- fahrgestellNr-->
+    <app-textfeld [labelText]="'Fahrgestell-Nr.'" [isRequired]="true" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('fahrgestellNrGroup')">
+
+    </app-textfeld>
+
+
+    <!-- KilometerStand-->
+    <app-textfeld [unit]="'km'" [labelText]="'Aktueller Kilometerstand'"
+                  [isRequired]="true" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('aktuellerKilometerstandGroup')">
+
+    </app-textfeld>
+
+    <!-- fahrzeugNeuWert-->
+
+      <app-textfeld [isFragezeichen]="true"
+                    [labelText]="'Fahrzeugneuwert'" [unit]="'€'"
+                    [isRequired]="true" [normal]="true"
+                    [textControl]="fahrzeuganbagenForm.get('fahrzeugneuwertGroup')">
+
+      </app-textfeld>
+
+    <!-- derzFahrzeugWert-->
+    <app-textfeld [isFragezeichen]="true"
+                  [labelText]="'derzeitiger Fahrzeugwert'" [unit]="'€'"
+                  [isRequired]="true" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('derzeitigerFahrzeugwertGroup')">
+    </app-textfeld>
+
+    <!-- Sonderausstattung-->
+
+    <app-textfeld [labelText]="'Sonderausstattungen'" [normal]="true"
+                  [textControl]="fahrzeuganbagenForm.get('sonderausstattungenGroup')">
+
+    </app-textfeld>
+
+
+    <!-- Assistenzsysteme -->
+  </div>
+</div>

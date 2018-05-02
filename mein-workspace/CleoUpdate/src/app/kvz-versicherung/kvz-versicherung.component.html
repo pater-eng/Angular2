@@ -1,0 +1,107 @@
+
+<div class="panel " >
+  <div class="panel-header " >
+    <label>
+      KFZ-Versicherung (PKW)
+      <img id="infoSymbol" src="/assets/images/info.png" class="headerInfoImage" />
+    </label>
+  </div>
+  <form [formGroup]="versicherungForm" (ngSubmit)="saveKfzVersicherung(versicherungForm.value)">
+   <div class="panel-body ">
+      <app-combobox [labelText]="'Versicherungsnehmer'" [comboboxControl]="versicherungForm.get('versicherungsnehmernGroup')"
+                    [listValues]="versicherungsnehmern">
+
+      </app-combobox>
+      <app-combobox [labelText]="'Geschäftsvorfall'" [listValues]="geschaeftsvorfall"
+                    name="geschaeftsvorfall" [comboboxControl]="versicherungForm.get('geschaeftsvorfallGroup')"
+                    [isRequired]="true">
+      </app-combobox>
+    </div>
+
+    <app-bestehender-vertrag [bestehenderVertragForm]="versicherungForm.get('bestehenderVertragGroup')">
+
+    </app-bestehender-vertrag>
+
+    <div class="panel-body">
+
+      <app-datefeld [labelText]="'Vertragsbeginn Neuvertrag'" [isFragezeichen]="true" name="vertragsbeginnNeuvertrag"
+                    [isRequired]="true" [datefeldControl]="versicherungForm.get('vertragsbeginnNeuvertragGroup')">
+      </app-datefeld>
+
+      <app-datefeld [labelText]="'Führerscheindatum vom VN'"
+                    [isRequired]="true" [datefeldControl]="versicherungForm.get('fuehrerscheindatumVNGroup')">
+
+      </app-datefeld>
+
+      <app-combobox [labelText]="'Zahlweise Neuvertrag'" [listValues]="zahlweiseneuvertraege"
+                    [isRequired]="true" [comboboxControl]="versicherungForm.get('zahlweiseNeuvertragGroup')">
+
+      </app-combobox>
+      <app-combobox [labelText]="'Tarifgruppe'" [listValues]="tarifgruppe"
+                    [isRequired]="true" [comboboxControl]="versicherungForm.get('tarifgruppeGroup')">
+
+      </app-combobox>
+    </div>
+
+    <!-- Branche VN -->
+
+    <app-combobox [labelText]="'Branche VN'" [listValues]="brancheVN"
+                  [isRequired]="true" [comboboxControl]="versicherungForm.get('brancheVNGroup')">
+
+    </app-combobox>
+
+    <!-- Berufsgruppe-->
+    <app-combobox [labelText]="'Berufsgruppe VN'" [listValues]="berufsgruppe"
+                  [isRequired]="true" [comboboxControl]="versicherungForm.get('berufsgruppeVNGroup')">
+
+    </app-combobox>
+
+
+    <!-- Fahrzeughalter -->
+
+        <app-combobox [labelText]="'Fahrzeughalter'" [listValues]="fahrzeughalter"
+                      [isRequired]="true" [comboboxControl]="versicherungForm.get('fahrzeughalterGroup')"
+                      (fahrzeughalterKind)="fahrzeuhalterKind($event)">
+        </app-combobox>
+    <!-- diese Bedingung ist nur wenn das gewählte Element gleich choice ist(siehe in der Vater Componente) -->
+    <div  *ngIf="fahrzeuhalterKindChoice">
+                          <!--[choice] = fahrzeuhalterKindChoice = damit bekommt das Kind die Steuerdaten von seiner Eltern -->
+      <app-fahrzeug-kind [fahrzeugKindForm]="versicherungForm.get('fahrzeugKindGroup')"  [choice]="fahrzeuhalterKindChoice"></app-fahrzeug-kind>
+    </div>
+
+
+    <!-- Einzugsermaechtigungsverfahren? -->
+
+    <app-checkbox [labelText]="'Einzugsermächtigungsverfahren?'"
+                  [checkboxControl]="versicherungForm.get('einzugsermaechtigungsverfahrenGroup')">
+
+    </app-checkbox>
+
+    <!-- eVB-Ue Erstellung durch Versicherer -->
+
+    <app-radio [labelText]="'eVB-ü Erstellung durch Versicherer'" [isFragezeichen]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+               [isRequired]="true" [radioControl]="(versicherungForm.get('eVBueErstellungVersichererGroup'))">
+    </app-radio>
+
+    <app-radio [labelText]="'Wurde bereits eine eVB erstellt?'" [isFragezeichen]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
+               [isRequired]="true" [radioControl]="versicherungForm.get('eVBErstelltGroup')">
+    </app-radio>
+
+    <!-- Deckungsumfang -->
+    <app-deckungsumfang [deckungsumfangForm]="versicherungForm.get('deckungsumfangGroup')"></app-deckungsumfang>
+
+    <!--Fahrzeugangaben -->
+
+    <app-fahrzeugangaben [fahrzeuganbagenForm]="versicherungForm.get('fahrzeuganbagenGroup')"></app-fahrzeugangaben>
+
+
+    <app-nutzerprofil [nutzerprofilForm]="versicherungForm.get('nutzungprofilGroup')"></app-nutzerprofil>
+
+    <div class="edit required">
+      <button id="update" type="submit" labelText="update"  (click)="saveKfzVersicherung(versicherungForm); versicherungForm.markAsTouched(true)">Speichern</button>
+      <button id="cancelEdit" type="button" routerLink="/">Abbrechen</button>
+    </div>
+         <!-- <button [disabled]="!versicherungForm.valid" type="submit">Submit</button>-->
+  </form>
+</div>
+

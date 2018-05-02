@@ -1,0 +1,15 @@
+<div class="editdiv">
+      <span *ngIf="isFragezeichen">
+        <img id="infoSymbol" src="/assets/images/info.png" class="infoImage">
+    </span>
+      <label id="info" style="margin-right: 22px;" class="editinfo {{!isRequired ? '' : 'required'}}" >
+        {{labelText}}
+      </label>
+            <span class="value ">
+                  <input id="vgCheckBox" type="checkbox" name="vgCheckBox" [formControl]="checkboxControl" checked="checked">
+                     <div *ngIf="checkboxControl.invalid && isParentTouched(checkboxControl.parent) && isRequired"  class="errors" style="color: #a31f42;">
+                          Wert erforderlich
+                    </div>
+            </span>
+
+</div>

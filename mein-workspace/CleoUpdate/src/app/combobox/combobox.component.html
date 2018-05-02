@@ -1,0 +1,23 @@
+
+
+<div class="editdiv">
+  <span *ngIf="isFragezeichen">
+      <img id="infoSymbol" src="/assets/images/info.png" class="infoImage">
+  </span>
+  <label class="edit {{!isRequired ? '' : 'required'}}" >
+    {{labelText}}
+  </label>
+  <span class="value">
+    <select  #fahr [(ngModel)]="selectedValue" class="form-control" name="value"
+             (input)="fahrzeughalterKind.emit(fahr.value)"
+             [formControl]="comboboxControl">
+      <option *ngFor="let v of listValues">{{v.name}}</option>
+
+    </select>
+         <div *ngIf="comboboxControl.invalid && isParentTouched(comboboxControl.parent) && isRequired" class="errors" style="color: #a31f42;">
+          Wert erforderlich
+        </div>
+  </span>
+</div>
+
+
