@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {KvzVersicherung} from '../Services/kvz-versicherung-service';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
@@ -9,22 +9,30 @@ import {FormArray, FormControl, FormGroup} from '@angular/forms';
 })
 export class TextblockComponent implements OnInit {
 
- /* kvzVersicherung = new KvzVersicherung();*/
-  @Input() kvzVersicherung: KvzVersicherung;
   @Input() labelText:string;
   @Input() isRequired:boolean;
 
-  @Input() textblockControl: FormControl;
+
+  @Input() valeur_1:string;
+  @Input() valeur_2:string;
+  @Input() valeur_3:string;
+
+  @Input() submittedAlready: boolean;
+  @Output() valeurChange = new EventEmitter<string>();
   constructor() { }
 
-  isParentTouched(localparent: FormGroup | FormArray){
-    if(localparent.parent != null){
-      return this.isParentTouched(localparent.parent);
-    }
-    return localparent.touched;
-  }
 
   ngOnInit() {
+  }
+  update_1() {
+    this.valeurChange.emit(this.valeur_1);
+
+  }
+  update_2() {
+    this.valeurChange.emit(this.valeur_2);
+  }
+  update_3() {
+    this.valeurChange.emit(this.valeur_3);
   }
 
 }

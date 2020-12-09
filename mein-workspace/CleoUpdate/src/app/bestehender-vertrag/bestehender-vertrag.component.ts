@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {BestehenderVertrag, KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {Form, FormBuilder, FormGroup} from '@angular/forms';
 import { FormControl } from '@angular/forms';
 
@@ -10,8 +10,7 @@ import { FormControl } from '@angular/forms';
 })
 export class BestehenderVertragComponent implements OnInit {
 
-
-   @Input() bestehenderVertragForm: FormGroup;
+  @Input() bestehenderVertrag;
 
   neuvertrag: boolean = false;
   vertragsart:string = "Bestehender Vertrag";
@@ -25,7 +24,9 @@ export class BestehenderVertragComponent implements OnInit {
   selectedKuendigung:string;
   kuendigung:any;
 
+ @Input()submittedAlready:boolean;
 
+  @Output() globalValue = new EventEmitter();
 
   constructor(public kvzVersicherungService: KvzVersicherungService) {
 
@@ -45,6 +46,7 @@ export class BestehenderVertragComponent implements OnInit {
   public getVersicherungsgeselschaft(){
     this.kvzVersicherungService.getVersicherungsgesellschafte().subscribe(data =>{
       this.versicherungsgeselschaft = data;
+      this.globalValue.emit(this.selectedVersicherungsgeselschaft)
       this.selectedVersicherungsgeselschaft = null;
     }, err =>{
       console.log(err);

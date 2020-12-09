@@ -7,19 +7,26 @@
             {{labelText}}
           </label>
     <span class="value ">
-      <table id="evbzue">
-              <tbody >
-                  <tr  *ngFor="let entry of beschreibung">
-                           <label class="radio-inline">
-                              <input type="radio" [name]="'radiogroup'+ currentEntry"
-                                    [formControl]="radioControl" [value] = "entry">
-                               {{entry.desc}}
-                           </label>
+      <table>
+                  <tr *ngFor="let entry of beschreibung; let i = index" class="radio-inline">
+                              <input [(ngModel)]="valeur"
+                                     #fahr="ngModel"
+                                     class="form-control"
+                                     required
+                                     name="{{labelText}}"
+                                     (change)="update()"
+                                     type="radio"
+                                     [name]="'radiogroup'+ currentEntry"
+                                     [value] = "entry">
+                                             {{entry.descript}}
+                    <div *ngIf=" (i === beschreibung.length - 1) &&
+                                  fahr.invalid &&
+                                 (fahr.dirty || fahr.touched || submittedAlready) &&
+                                 isRequired"
+                         class="errors notValide" style="color: #a31f42;">
+                           Wert erforderlich
+                  </div>
                   </tr>
-                <div *ngIf="radioControl.invalid && isParentTouched(radioControl.parent)"  class="errors" style="color: #a31f42;">
-                   Wert erforderlich
-                </div>
-            </tbody>
       </table>
 	</span>
 

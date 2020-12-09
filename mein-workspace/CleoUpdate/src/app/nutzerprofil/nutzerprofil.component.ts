@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {FormGroup} from '@angular/forms';
 
 @Component({
@@ -10,7 +10,11 @@ import {FormGroup} from '@angular/forms';
 export class NutzerprofilComponent implements OnInit {
 
 
-  @Input() nutzerprofilForm: FormGroup;
+  nutzerprofil= new KvzVersicherung();
+
+  @Input()submittedAlready:boolean;
+
+
 
   nutzungen:any;
   selectedNutzung:string;
@@ -27,6 +31,8 @@ export class NutzerprofilComponent implements OnInit {
 
   weiterPersonen: any[] = [];
 
+  @Input() nutzerProfil;
+
 
   constructor(private kvzVersicherungService: KvzVersicherungService) { }
 
@@ -40,7 +46,10 @@ export class NutzerprofilComponent implements OnInit {
     this.getNutzung_im_Ausland();
   }
 
-
+  valeur:boolean;
+  valeurChange(ev:boolean){
+    this.valeur=ev;
+  }
 
   public getNutzung(){
     this.kvzVersicherungService.getNutzung().subscribe(data=>{
@@ -85,6 +94,7 @@ export class NutzerprofilComponent implements OnInit {
   }
 
   public entferne(person){
+    // alternative
      /*this.kvzVersicherungService.delete(person);*/
     this.weiterPersonen.splice(person);
   }

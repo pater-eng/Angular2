@@ -1,0 +1,31 @@
+<application>
+  <component name="RecentDirectoryProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/mein-workspace/Cleo" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/mein-workspace/Cleo" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/mein-workspace/Cleo" />
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/mein-workspace/Cleo">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="WS-181.4668.60" />
+              <option name="productionCode" value="WS" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1525071146466" />
+              <option name="buildTimestamp" value="1524483142688" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</application>

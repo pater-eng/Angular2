@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {FormGroup} from '@angular/forms';
 
 @Component({
@@ -9,8 +9,9 @@ import {FormGroup} from '@angular/forms';
 })
 export class DeckungsumfangComponent implements OnInit {
 
+  @Input()deckungsumfang;
 
-  @Input() deckungsumfangForm: FormGroup;
+  @Input()submittedAlready:boolean;
 
   selectedSchadensfreiheitsrabatt:string;
   schadensfreiheitsrabatte:any;

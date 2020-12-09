@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import { AppComponent } from './app.component';
 import { KvzVersicherungComponent } from './kvz-versicherung/kvz-versicherung.component';
 import {RouterModule, Routes} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect';
 import {KvzVersicherungService} from './Services/kvz-versicherung-service';
 import { BestehenderVertragComponent } from './bestehender-vertrag/bestehender-vertrag.component';
@@ -18,6 +18,7 @@ import { DeckungsumfangComponent } from './deckungsumfang/deckungsumfang.compone
 import { NutzerprofilComponent } from './nutzerprofil/nutzerprofil.component';
 import { NutzerComponent } from './nutzer/nutzer.component';
 import { FahrzeugKindComponent } from './fahrzeug-kind/fahrzeug-kind.component';
+import {TooltipModule} from 'ngx-tooltip';
 
 
 
@@ -48,10 +49,11 @@ const appRoutes: Routes = [
 
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(appRoutes), FormsModule, MultiselectDropdownModule,
-    ReactiveFormsModule
+    BrowserModule,RouterModule.forRoot(appRoutes), FormsModule, MultiselectDropdownModule, TooltipModule
   ],
   providers: [KvzVersicherungService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

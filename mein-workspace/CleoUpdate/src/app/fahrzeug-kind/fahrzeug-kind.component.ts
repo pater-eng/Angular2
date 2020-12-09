@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {FormGroup} from '@angular/forms';
+import {KvzVersicherungComponent} from '../kvz-versicherung/kvz-versicherung.component';
 
 @Component({
   selector: 'app-fahrzeug-kind',
@@ -9,8 +10,9 @@ import {FormGroup} from '@angular/forms';
 })
 export class FahrzeugKindComponent implements OnInit {
 
-  @Input() fahrzeugKindForm: FormGroup;
   @Input() choice;
+
+  @Input() fahrzeugKind;
 
   selectedAnrede: string;
   anrede: any;
@@ -20,6 +22,10 @@ export class FahrzeugKindComponent implements OnInit {
   familienstand: any;
   selectedBranche: string;
   branche: any;
+
+  @Input() vorUndNachname:boolean;
+
+  @Input()submittedAlready:boolean;
 
 
   constructor(public kvzVersicherungService: KvzVersicherungService) {

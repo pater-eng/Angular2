@@ -7,16 +7,24 @@
   <label class="edit {{!isRequired ? '' : 'required'}}" >
     {{labelText}}
   </label>
-  <span class="value">
-    <select  #fahr [(ngModel)]="selectedValue" class="form-control" name="value"
-             (input)="fahrzeughalterKind.emit(fahr.value)"
-             [formControl]="comboboxControl">
-      <option *ngFor="let v of listValues">{{v.name}}</option>
-
+  <span>
+    <!-- -->
+    <select [(ngModel)]="valeur"
+             class="form-control"
+             name="value"  required
+              #fahr="ngModel"
+              #test
+             (input)="fahrzeughalterKind.emit(test.value); valeurChange.emit(test.value); ">
+      <option value="" disabled selected *ngIf="!iswaehlenNotDefault">Bitte wählen Sie</option>
+      <option *ngFor="let v of listValues">{{v.name}}
+      </option>
     </select>
-         <div *ngIf="comboboxControl.invalid && isParentTouched(comboboxControl.parent) && isRequired" class="errors" style="color: #a31f42;">
+     <div  *ngIf="fahr.invalid && (fahr.dirty || fahr.touched || submittedAlready) && isRequired" class="errors" style="color: #a31f42;">
+        <div *ngIf="fahr.errors['required']">
           Wert erforderlich
         </div>
+     </div>
+
   </span>
 </div>
 

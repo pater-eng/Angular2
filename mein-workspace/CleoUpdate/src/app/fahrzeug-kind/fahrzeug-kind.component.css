@@ -1,8 +1,10 @@
 .panel {
-  font-size: 11px;
-  color: #000;
-  font-family: Arial,Verdana,sans-serif;
-  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #F3F2F2;
+  border-color: #C0C0C0;
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px;
 }
 
 
@@ -106,25 +108,6 @@ input{
   font: 400 13.3333px Arial;
   text-rendering: auto;
   -webkit-writing-mode: horizontal-tb !important;
-  width: inherit;
-  margin: 3px 3px 0px 5px;
-  -webkit-appearance: radio;
-  box-sizing: border-box;
-  cursor: default;
-  -webkit-rtl-ordering: logical;
-  width:40px;
-  background-color: #eef0f1;
-  border: 1px solid #e0e1e2;
-  line-height: 20px;
-
-
-}
-
-table{
-  display: table;
-  border-collapse: separate;
-  border-spacing: 2px;
-  border-color: grey;
 
 }
 select{
@@ -159,7 +142,7 @@ select{
 .content img {
   border: 0px;
 }
-.infoImage{
+.infoImage {
   float: left;
   margin-top: 3px;
 }
@@ -176,20 +159,24 @@ select{
 .loginpage {
   font-family: Arial, Verdana, Helvetica, sans-serif;
 }
-input [type="radio" i]{
-  width: inherit;
-  margin: 3px 3px 0px 5px;
-  -webkit-appearance: radio;
+input[type="checkbox" i] {
+  margin: 3px 3px 3px 4px;
+  -webkit-appearance: checkbox;
   box-sizing: border-box;
   background-color: initial;
   cursor: default;
 }
 .style{
-  width: 25px;
-  text-transform: uppercase;
-  width: 40px;
-  width: 170px;
+  display: inline;
 }
 
+app-textfeld.relative{
+  display: inline-block;
+  vertical-align: top;
+  height: 20px;
+  margin-left: 415px;
+  position: relative;
+  top: -37px;
+}
 
 

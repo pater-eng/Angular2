@@ -1,4 +1,4 @@
-import {Component, forwardRef, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {ControlValueAccessor, FormArray, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {ComboboxComponent} from '../combobox/combobox.component';
@@ -11,33 +11,29 @@ import {ComboboxComponent} from '../combobox/combobox.component';
 })
 export class TextfeldComponent  {
 
+  @Input() cssValue = '';
+  @Input() vorUndNachname:boolean;
 
   @Input() labelText: string;
   @Input() isFragezeichen: boolean;
   @Input() unit:string = " ";
   @Input() isRequired:boolean;
-  @Input() nameForm:string;
-  @Input() fahrzeugKind:boolean;
-  @Input() normal:boolean;
-  @Input() fahrzeugHausnummer:boolean;
-  @Input() fahrzeugWohnort:boolean;
-  @Input() fahrzeugPLZ:boolean;
+
+
+  @Input() valeur: string;
+  @Input() submittedAlready: boolean;
+  @Output() valeurChange = new EventEmitter<string>();
 
 
 
 
-  @Input() textControl: FormControl;
+ update() {
+    this.valeurChange.emit(this.valeur);
 
-
-
-   // Rekursion um die Eltern Info zu übergeben
-  isParentTouched(localparent: FormGroup | FormArray){
-    if(localparent.parent != null){
-      return this.isParentTouched(localparent.parent);
-    }
-    return localparent.touched;
   }
 }
+
+
 
 
 

@@ -6,15 +6,19 @@
     <app-combobox [labelText]="'Nutzung'"
                   [isRequired]="true"
                   [listValues]="nutzungen"
-                  [comboboxControl]="nutzerprofilForm.get('nutzungGroup')">
+                  name="nutzungen"
+                  [(valeur)]="nutzerProfil.nutzung_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
     <!-- Jaehrliche Fahrleistung -->
     <app-textfeld [labelText]="'Jährliche Fahrleistung'"
                   [isFragezeichen]="true"
-                  [isRequired]="true" [normal]="true"
-                  [textControl]="nutzerprofilForm.get('jaehrlicheFahrleistungGroup')">
+                  [isRequired]="true"
+                  name="jaehrlicheFahrleistung"
+                  [(valeur)]="nutzerProfil.jaehrlicheFahrleistung"
+                  [submittedAlready]="submittedAlready">
 
     </app-textfeld>
 
@@ -23,26 +27,36 @@
     <app-combobox [labelText]="'Nutzerkreis'"
                   [isRequired]="true"
                   [listValues]="nutzerkreis"
-                  [comboboxControl]="nutzerprofilForm.get('nutzerkreisGroup')">
+                  name="nutzerkreis"
+                  [(valeur)]="nutzerProfil.nutzerkreis_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
 
-      <app-radio [labelText]="'VN ist Hauptnutzer'" [isFragezeichen]="true"
-                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [isRequired]="true" [radioControl]="nutzerprofilForm.get('vnHauptnutzerGroup')">
+      <app-radio [labelText]="'VN ist Hauptnutzer'"
+                 [isFragezeichen]="true"
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 [isRequired]="true"
+                 name="vnHauptnutzer"
+                 [(valeur)]="nutzerProfil.vnHauptnutzer"
+                 [submittedAlready]="submittedAlready">
      </app-radio>
 
 
-       <app-radio [labelText]="'VN ist Fahrer'" [isFragezeichen]="true"
-                  [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                  [isRequired]="true" [radioControl]="nutzerprofilForm.get('vnFahrerGroup')">
+       <app-radio [labelText]="'VN ist Fahrer'"
+                  [isFragezeichen]="true"
+                  [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                  [isRequired]="true"
+                  name="vnFahrer"
+                  [(valeur)]="nutzerProfil.vnFahrer"
+                  [submittedAlready]="submittedAlready">
 
     </app-radio>
 
 
     <div class="panel-body" *ngFor="let person of weiterPersonen">
-      <app-nutzer [nutzerForm]="nutzerprofilForm.get('nutzerGroup')" (entfernenVon)="entferne(person)" ></app-nutzer>
+      <app-nutzer [submittedAlready]="submittedAlready" (entfernenVon)="entferne(person)" [nutzer]="nutzerProfil.nutzer" ></app-nutzer>
     </div>
 
     <button  style="display: block; width: 186px;
@@ -54,30 +68,36 @@
 
 
     <app-checkbox [labelText]="'Begleitetes Fahren bei VN'"
-                  [isRequired]="true"  [isFragezeichen]="true"
-                  [checkboxControl]="nutzerprofilForm.get('begleitetesFahrerVNGroup')">
+                  [isRequired]="true"
+                  [isFragezeichen]="true"
+                  name="begleitetesFahrer"
+                  [(valeur)]="nutzerProfil.begleitetesFahrer"
+                  [submittedAlready]="submittedAlready">
 
     </app-checkbox>
 
 
     <app-checkbox [labelText]="'Eintrag im Verkehrszentralregister (VN)'"
-                                [isFragezeichen]="true"
-                                [checkboxControl]="nutzerprofilForm.get('eintragVerkehrszentralregisterGroup')">
+                  [isFragezeichen]="true"
+                  name="eintragImVerkehrszentralregister"
+                  [(valeur)]="nutzerProfil.eintragVerkehrszentralregister"
+                  [submittedAlready]="submittedAlready">
 
   </app-checkbox>
 
     <app-checkbox [labelText]="'Zweitwagen'"
-                  [checkboxControl]="nutzerprofilForm.get('zweitwagenGroup')">
+                  name="zweitwagen"
+                  [(valeur)]="nutzerProfil.zweitwagen"
+                  [submittedAlready]="submittedAlready">
 
     </app-checkbox>
 
-
-    <!-- Ende Zweitwagen -->
-
-    <!-- abstellPlatz -->
-    <app-combobox [labelText]="'Abstellplatz'" [listValues]="abstellplaetze"
+    <app-combobox [labelText]="'Abstellplatz'"
+                  [listValues]="abstellplaetze"
                   [isRequired]="true"
-                  [comboboxControl]="nutzerprofilForm.get('abstellplatzGroup')">
+                  name="abstellplaetze"
+                  [(valeur)]="nutzerProfil.abstellplatz_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
@@ -85,53 +105,80 @@
     <!-- Wohneigentum -->
     <app-combobox [labelText]="'Wohneigentum'"
                   [listValues]="wohneigentueme"
-                  [comboboxControl]="nutzerprofilForm.get('wohneigentumGroup')">
+                  name="wohneigentueme"
+                  [(valeur)]="nutzerProfil.wohneigentum_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
 
     <app-checkbox [labelText]="'Existenzgründer'"
                   [isFragezeichen]="true"
-                  [checkboxControl]="nutzerprofilForm.get('existenzgruenderGroup')"></app-checkbox>
+                  name="existenzgruender"
+                  [(valeur)]="nutzerProfil.existenzgruender"
+                  [submittedAlready]="submittedAlready">
+    </app-checkbox>
     <app-checkbox [labelText]="'  EU-Führerschein'"
                   [isFragezeichen]="true"
-                  [checkboxControl]="nutzerprofilForm.get('euFuehrerscheinGroup')"></app-checkbox>
+                  name="euFuehrerschein"
+                  [(valeur)]="nutzerProfil.euFuehrerschein"
+                  [submittedAlready]="submittedAlready">
+
+    </app-checkbox>
     <app-checkbox [labelText]="'Betriebsausgabe'"
                   [isFragezeichen]="true"
-                  [checkboxControl]="nutzerprofilForm.get('betriebsausgabeGroup')"></app-checkbox>
+                  name="betriebsausgabe"
+                  [(valeur)]="nutzerProfil.betriebsausgabe"
+                  [submittedAlready]="submittedAlready">
+
+    </app-checkbox>
 
 
     <!-- Finanzierung -->
-    <app-combobox [labelText]="'Finanzierungsart'" [listValues]="finanzierungsarte"
+    <app-combobox [labelText]="'Finanzierungsart'"
+                  [listValues]="finanzierungsarte"
                   [isRequired]="true"
-                  [comboboxControl]="nutzerprofilForm.get('finanzierungsartGroup')">
+                  name="finanzierungsarte"
+                  [(valeur)]="nutzerProfil.finanzierungsart_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
     <app-checkbox [labelText]="'VN steuerabzugsberechtigt'"
                   [isFragezeichen]="true"
-                  [checkboxControl]="nutzerprofilForm.get('vnSteuerabzugsberechtigGroup')">
+                  name="vnSteuerabzugsberechtig"
+                  [(valeur)]="nutzerProfil.vnSteuerabzugsberechtig"
+                  [submittedAlready]="submittedAlready">
 
     </app-checkbox>
 
 
    <!-- Auslandnutzung -->
 
-    <app-combobox [labelText]="'Nutzung im Ausland'" [listValues]="nutzung_im_Ausland"
-                  [comboboxControl]="nutzerprofilForm.get('nutzungAuslandGroup')"
+    <app-combobox [labelText]="'Nutzung im Ausland'"
+                  [listValues]="nutzung_im_Ausland"
+                  name="nutzung_im_Ausland"
+                  [(valeur)]="nutzerProfil.nutzung_im_Ausland_ein"
+                  [submittedAlready]="submittedAlready"
                   [isRequired]="true">
 
     </app-combobox>
 
-    <app-radio [labelText]="'Saison-Kennzeichen'"  [isRequired]="true"
-               [beschreibung]="[{desc:'Normalzulassung'},{ desc:'Saisonzulassung'},{ desc: 'Wechselkennzeichen'}]"
-               [radioControl]="nutzerprofilForm.get('saisonKennzeichenGroup')">
+    <app-radio [labelText]="'Saison-Kennzeichen'"
+               [isRequired]="true"
+               [beschreibung]="[{descript:'Normalzulassung'},{ descript:'Saisonzulassung'},{ descript: 'Wechselkennzeichen'}]"
+               name="saisonKennzeichen"
+               [(valeur)]="nutzerProfil.saisonKennzeichen"
+               [submittedAlready]="submittedAlready">
 
     </app-radio>
 
-    <app-radio [labelText]="' Vorschäden in den letzten 3 Jahren'"  [isRequired]="true"
-               [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-               [radioControl]="nutzerprofilForm.get('vorschaedenLetztenDreiJahrenGroup')">
+    <app-radio [labelText]="' Vorschäden in den letzten 3 Jahren'"
+               [isRequired]="true"
+               [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+               name="vorschaedenLetztenDreiJahren"
+               [(valeur)]="nutzerProfil.vorschaedenLetztenDreiJahren"
+               [submittedAlready]="submittedAlready">
 
     </app-radio>
 

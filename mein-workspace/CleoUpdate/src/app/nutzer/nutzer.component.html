@@ -5,86 +5,155 @@
       <app-combobox [labelText]="'Anrede'"
                     [isRequired]="true"
                     [listValues]="anrede"
-                    [comboboxControl]="nutzerForm.get('anredeGroup')">
+                    name="anrede"
+                    [(valeur)]="nutzer.anrede_ein"
+                    [submittedAlready]="submittedAlready">
       </app-combobox>
 
-      <app-textfeld [labelText]="'Vorname'" [isRequired]="true" [normal]="true"  [textControl]="nutzerForm.get('vornameGroup')"></app-textfeld>
-      <app-textfeld [labelText]="'Nachname'" [isRequired]="true"  [normal]="true" [textControl]="nutzerForm.get('nachnameGroup')"></app-textfeld>
-      <app-textfeld [labelText]="'Ort'" [isRequired]="true" [normal]="true"  [textControl]="nutzerForm.get('ortGroup')"></app-textfeld>
-      <app-textfeld [labelText]="'Postleitzahl'"  [normal]="true" [textControl]="nutzerForm.get('postleitzahlGroup')"></app-textfeld>
+      <app-textfeld [labelText]="'Vorname'"
+                    [isRequired]="true"
+                    name="vorname"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="nutzer.vorname">
 
-      <app-combobox [labelText]="'Bezug zu VN'" [isRequired]="true"
+      </app-textfeld>
+      <app-textfeld [labelText]="'Nachname'"
+                    [isRequired]="true"
+                    name="nachname"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="nutzer.nachname">
+
+      </app-textfeld>
+      <app-textfeld [labelText]="'Ort'"
+                    [isRequired]="true"
+                    name="ort"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="nutzer.ort">
+
+      </app-textfeld>
+      <app-textfeld [labelText]="'Postleitzahl'"
+                    name="postleitzahl"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="nutzer.postleitzahl">
+
+      </app-textfeld>
+
+      <app-combobox [labelText]="'Bezug zu VN'"
+                    [isRequired]="true"
                     [listValues]="bezugVN"
-                    [comboboxControl]="nutzerForm.get('bezugVNGroup')">
+                    name="bezug_zu_VN"
+                    [(valeur)]="nutzer.bezug_ein"
+                    [submittedAlready]="submittedAlready">
 
       </app-combobox>
-      <app-combobox [labelText]="'Berufsgruppe'" [isRequired]="true" [listValues]="berufsgruppe"
-                    [comboboxControl]="nutzerForm.get('berufsgruppeGroup')">
+      <app-combobox [labelText]="'Berufsgruppe'"
+                    [isRequired]="true"
+                    [listValues]="berufsgruppe"
+                    name="berufsgruppe"
+                    [(valeur)]="nutzer.berufsgruppe_ein"
+                    [submittedAlready]="submittedAlready">
 
       </app-combobox>
-      <app-combobox [labelText]="'Familienstand'" [listValues]="familienstand"
-                    [comboboxControl]="nutzerForm.get('berufsgruppeGroup')"></app-combobox>
+      <app-combobox [labelText]="'Familienstand'"
+                    [listValues]="familienstand"
+                    name="familienstand"
+                    [(valeur)]="nutzer.familienstand_ein"
+                    [submittedAlready]="submittedAlready">
 
-      <app-radio [labelText]="'Familie'" [isRequired]="true"
-                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('familieGroup')">
+      </app-combobox>
+
+      <app-radio [labelText]="'Familie'"
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript:'nein'}]"
+                 name="familie"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.familie">
 
       </app-radio>
-      <app-radio [labelText]="'Nutzer lebt in häuslicher Gemeinschaft mit VN'" [isRequired]="true"
-                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('nutzerhaeuslicherGemeinschaftVNGroup')">
-
+      <app-radio [labelText]="'Nutzer lebt in häuslicher Gemeinschaft mit VN'"
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript:'nein'}]"
+                 name="nutzerLebtInHaeuslicherGemeinschaftMitVN"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.nutzerLebtInHaeuslicherGemeinschaftMitVN">
       </app-radio>
 
-      <app-datefeld [labelText]="'Führerscheindatum'" [isRequired]="true"
-                    [datefeldControl]="nutzerForm.get('fuehrerscheindatumGroup')">
+      <app-datefeld [labelText]="'Führerscheindatum'"
+                    [isRequired]="true"
+                    name="fuehrerscheindatum"
+                    [(valeur)]="nutzer.fuehrerscheindatum"
+                    [submittedAlready]="submittedAlready">
       </app-datefeld>
 
 
       <app-radio [labelText]="'Hat der Nutzer seinen Führerschein in einem Land der EU (+Beitrittsgebiete) erworben?'"
-                 [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('hatNutzerFuehrerscheinInEinemLandDerEUErworbenGroup')">
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 name="hatDerNutzerSeinenFuehrerscheinInEinemLandDerEUErworben"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.hatDerNutzerSeinenFuehrerscheinInEinemLandDerEUErworben">
 
       </app-radio>
 
       <app-radio [labelText]="'Nutzer hat den Führerschein in den letzten 10 Jahren durchgehend besessen'"
-                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessenGroup')">
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 name="nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessen"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessen">
 
       </app-radio>
 
       <app-checkbox [labelText]="'Wohnsitz seit mind. 10 Jahren in BRD?'"
                    [isFragezeichen]="true"
-                    [checkboxControl]="nutzerForm.get('wohnsitzSeitMind10JahrenInBRD')">
+                    name="wohnsitzSeitMind10JahrenInBRD"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="nutzer.wohnsitzSeitMind10JahrenInBRD">
 
       </app-checkbox>
 
       <app-datefeld [labelText]="'Sicherheitstraining absolviert?'"
                     [isFragezeichen]="true"
-                    [datefeldControl]="nutzerForm.get('sicherheitstrainingAbsolviertGroup')">
+                    name="sicherheitstrainingAbsolviert"
+                    [(valeur)]="nutzer.sicherheitstrainingAbsolviert_ein"
+                    [submittedAlready]="submittedAlready">
       </app-datefeld>
-      <app-combobox [labelText]="'Nutzung'" [listValues]="nutzungen" [isRequired]="true"
-                    [comboboxControl]="nutzerForm.get('nutzungGroup')">
+      <app-combobox [labelText]="'Nutzung'"
+                    [listValues]="nutzungen"
+                    [isRequired]="true"
+                    name="nutzungen"
+                    [(valeur)]="nutzer.nutzung_ein"
+                    [submittedAlready]="submittedAlready">
       </app-combobox>
 
       <app-datefeld [labelText]="'Geburtsdatum'"
                     [isRequired]="true"
-                    [datefeldControl]="nutzerForm.get('geburtsdatumGroup')">
+                    name="gebutsdatum"
+                    [(valeur)]="nutzer.geburtsdatum"
+                    [submittedAlready]="submittedAlready">
       </app-datefeld>
 
       <app-radio [labelText]="'Begleitetes Fahren bei Nutzer'"
-                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('begleitetesFahrenBeiNutzerGroup')">
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 name="begleitetesFahrenBeiNutzer"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.begleitetesFahrenBeiNutzer">
 
       </app-radio>
       <app-radio [labelText]="'Eintrag im Verkehrszentralregister (Flensburg)'"
-                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('eintragImVerkehrszentralregisterGroup')">
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 name="eintragImVerkehrszentralregister"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.eintragImVerkehrszentralregister">
 
       </app-radio>
       <app-radio [labelText]="'Ist ein Hauptnutzer'"
-                 [isRequired]="true" [beschreibung]="[{desc:'ja'},{desc: 'nein'}]"
-                 [radioControl]="nutzerForm.get('istEinHauptnutzerGroup')">
+                 [isRequired]="true"
+                 [beschreibung]="[{descript:'ja'},{descript: 'nein'}]"
+                 name="istEinHauptnutzer"
+                 [submittedAlready]="submittedAlready"
+                 [(valeur)]="nutzer.istEinHauptnutzer">
 
       </app-radio>
       <button  type="submit" (click)="entfernenVon.emit()">

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -11,19 +11,21 @@ export class DatefeldComponent implements OnInit {
   @Input() isRequired:boolean;
   @Input() isFragezeichen:boolean;
 
-  @Input() datefeldControl: FormControl;
+  @Input() valeur:Date;
+  @Input() submittedAlready: boolean;
+
+
+  @Output() valeurChange = new EventEmitter<Date>();
 
 
   constructor() { }
 
-  isParentTouched(localparent: FormGroup | FormArray){
-    if(localparent.parent != null){
-      return this.isParentTouched(localparent.parent);
-    }
-    return localparent.touched;
-  }
 
   ngOnInit() {
+  }
+
+  update() {
+    this.valeurChange.emit(this.valeur);
   }
 
 }

@@ -3,109 +3,157 @@
   <div class="panel-body " id="fahrzeugAngaben_body">
 
     <!-- kennzeichen-->
-    <app-textblock [labelText]="'Kennzeichen (z.B. A-B 123)'" [isRequired]="true"
-                   [textblockControl]="fahrzeuganbagenForm.get('kennzeichen1_Group')">
+    <app-textblock [labelText]="'Kennzeichen (z.B. A-B 123)'"
+                   [isRequired]="true"
+                   name="kennzeichen1"
+                   [(valeur_1)]="fahrzeuganbagen.kennzeichen1"
+                   [(valeur_2)]="fahrzeuganbagen.kennzeichen2"
+                   [(valeur_3)]="fahrzeuganbagen.kennzeichen3"
+                   [submittedAlready]="submittedAlready">
 
     </app-textblock>
 
     <app-combobox [labelText]="'Zulassungsbezirk'"
                   [listValues]="zulassungsbezirk"
                   [isRequired]="true"
-                  [comboboxControl]="fahrzeuganbagenForm.get('zulassungsbezirkGroup')">
+                  name="zulassungsbezirk"
+                  [(valeur)]="fahrzeuganbagen.zulassungsbezirk_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
     <!-- ErstzulassungDatum-->
     <app-datefeld [labelText]="'Erstzulassungsdatum'"
                   [isRequired]="true"
-                  [datefeldControl]="fahrzeuganbagenForm.get('erstzulassungsdatumGroup')">
+                  name="erstzulassungsdatum"
+                  [(valeur)]="fahrzeuganbagen.erstzulassungsdatum"
+                  [submittedAlready]="submittedAlready">
 
     </app-datefeld>
 
     <app-datefeld [labelText]="'Datum des Fahrzeugerwerbs'"
                   [isRequired]="true"
-                  [datefeldControl]="fahrzeuganbagenForm.get('datumFahrzeugerwerbsGroup')">
+                  name="datumFahrzeugerwerb"
+                  [(valeur)]="fahrzeuganbagen.datumFahrzeugerwerb"
+                  [submittedAlready]="submittedAlready">
 
     </app-datefeld>
 
-    <app-combobox [labelText]="'Erstbesitz'" [listValues]="erstbesitz"
+    <app-combobox [labelText]="'Erstbesitz'"
+                  [listValues]="erstbesitz"
                   [isFragezeichen]="true"
-                  [comboboxControl]="fahrzeuganbagenForm.get('erstbesitzGroup')">
+                  name="erstbesitz"
+                  [(valeur)]="fahrzeuganbagen.erstbesitz_ein"
+                  [submittedAlready]="submittedAlready">
 
     </app-combobox>
 
+    <div class="editdiv">
+        <app-textfeld [labelText]="'KFZ-Suchfeld'"
+                      [isFragezeichen]="true"
+                      [unit]="' Modell PS KW ccm³ HSN TSN'"
+                      name="name"
+                      [(valeur)]="fahrzeuganbagen.kFZSuchfeld"
+                      [submittedAlready]="submittedAlready">
 
-    <app-textfeld [labelText]="'KFZ-Suchfeld'"
-                  [isFragezeichen]="true" [normal]="true"
-                  [unit]="'Modell PS KW ccm³ HSN TSN'"
-                  [textControl]="fahrzeuganbagenForm.get('kFZSuchfeldGroup')">
-
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
 							<!-- herstellerNr-->
-    <app-textfeld [isFragezeichen]="true" [labelText]="'Hersteller-Nr.'"
-                  [isRequired]="true" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('herstellerNrGroup')">
+    <div class="editdiv">
+        <app-textfeld [isFragezeichen]="true"
+                      [labelText]="'Hersteller-Nr.'"
+                      [isRequired]="true"
+                      name="herstellerNr"
+                      [(valeur)]="fahrzeuganbagen.herstellerNr"
+                      [submittedAlready]="submittedAlready">
 
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
     <!-- typSchluessel-->
+    <div class="editdiv">
+        <app-textfeld [isFragezeichen]="true"
+                      [labelText]="'Typschlüssel-Nr'"
+                      [isRequired]="true"
+                      maxlength="40"
+                      id="typschluesselNr"
+                      name="name"
+                      [(valeur)]="fahrzeuganbagen.typschluesselNr"
+                      [submittedAlready]="submittedAlready">
 
-    <app-textfeld [isFragezeichen]="true" [labelText]="'Typschlüssel-Nr'"
-                  [isRequired]="true" maxlength="40" [normal]="true"
-                  [labelText]="typschluesselNr" id="typschluesselNr"
-                  [textControl]="fahrzeuganbagenForm.get('typschluesselNrGroup')">
-
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
 							<!-- fahrzeugMarke-->
-    <app-textfeld [labelText]="'Fahrzeugmarke'" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('fahrzeugmarkeGroup')">
+    <div class="editdiv">
+        <app-textfeld [labelText]="'Fahrzeugmarke'"
+                      name="fahrzeugmarke"
+                      [(valeur)]="fahrzeuganbagen.fahrzeugmarke"
+                      [submittedAlready]="submittedAlready">
 
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
     <!-- fahrzeugTyp-->
-    <app-textfeld [labelText]="'Fahrzeugtyp'"
-                  [textControl]="fahrzeuganbagenForm.get('fahrzeugtypGroup')">
-
-    </app-textfeld>
-
+    <div class="editdiv">
+        <app-textfeld [labelText]="'Fahrzeugtyp'"
+                      name="fahrzeugtyp"
+                      [(valeur)]="fahrzeuganbagen.fahrzeugtyp"
+                      [submittedAlready]="submittedAlready">
+        </app-textfeld>
+    </div>
     <!-- fahrgestellNr-->
-    <app-textfeld [labelText]="'Fahrgestell-Nr.'" [isRequired]="true" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('fahrgestellNrGroup')">
+    <div class="editdiv">
+        <app-textfeld [labelText]="'Fahrgestell-Nr.'"
+                      [isRequired]="true"
+                      name="fahrgestellNr"
+                      [(valeur)]="fahrzeuganbagen.fahrgestellNr"
+                      [submittedAlready]="submittedAlready">
 
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
 
     <!-- KilometerStand-->
-    <app-textfeld [unit]="'km'" [labelText]="'Aktueller Kilometerstand'"
-                  [isRequired]="true" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('aktuellerKilometerstandGroup')">
+    <div class="editdiv">
+        <app-textfeld [unit]="' km'"
+                      [labelText]="'Aktueller Kilometerstand'"
+                      [isRequired]="true"
+                      name="aktuellerKilometerstand"
+                      [(valeur)]="fahrzeuganbagen.aktuellerKilometerstand"
+                      [submittedAlready]="submittedAlready">
 
-    </app-textfeld>
-
+        </app-textfeld>
+    </div>
     <!-- fahrzeugNeuWert-->
-
-      <app-textfeld [isFragezeichen]="true"
-                    [labelText]="'Fahrzeugneuwert'" [unit]="'€'"
-                    [isRequired]="true" [normal]="true"
-                    [textControl]="fahrzeuganbagenForm.get('fahrzeugneuwertGroup')">
-
-      </app-textfeld>
-
+    <div class="editdiv">
+        <app-textfeld [isFragezeichen]="true"
+                      [labelText]="'Fahrzeugneuwert'"
+                      [unit]="' €'"
+                      [isRequired]="true"
+                      name="fahrzeugneuwert"
+                      [(valeur)]="fahrzeuganbagen.fahrzeugneuwert"
+                      [submittedAlready]="submittedAlready">
+        </app-textfeld>
+    </div>
     <!-- derzFahrzeugWert-->
-    <app-textfeld [isFragezeichen]="true"
-                  [labelText]="'derzeitiger Fahrzeugwert'" [unit]="'€'"
-                  [isRequired]="true" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('derzeitigerFahrzeugwertGroup')">
-    </app-textfeld>
+    <div class="editdiv">
+        <app-textfeld [isFragezeichen]="true"
+                      [labelText]="'derzeitiger Fahrzeugwert'"
+                      [unit]="' €'"
+                      [isRequired]="true"
+                      name="derzeitigerFahrzeugwert"
+                      [(valeur)]="fahrzeuganbagen.derzeitigerFahrzeugwert"
+                      [submittedAlready]="submittedAlready">
+        </app-textfeld>
+
+    </div>
 
     <!-- Sonderausstattung-->
+    <div class="editdiv">
+        <app-textfeld [labelText]="'Sonderausstattungen'"
+                      name="sonderausstattungen"
+                      [(valeur)]="fahrzeuganbagen.sonderausstattungen"
+                      [submittedAlready]="submittedAlready">
 
-    <app-textfeld [labelText]="'Sonderausstattungen'" [normal]="true"
-                  [textControl]="fahrzeuganbagenForm.get('sonderausstattungenGroup')">
-
-    </app-textfeld>
+        </app-textfeld>
+    </div>
 
 
     <!-- Assistenzsysteme -->

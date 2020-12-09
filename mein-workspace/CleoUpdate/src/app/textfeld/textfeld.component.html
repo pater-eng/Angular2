@@ -7,26 +7,17 @@
     <label class="edit {{!isRequired ? '' : 'required'}}" >
       {{labelText}}
     </label>
-    <span class="value">
-      <div *ngIf="normal">
-        <input type="text" class="form-control" [formControl]="textControl">{{unit}}
-      </div>
-      <div *ngIf="fahrzeugKind">
-        <input type="text" class="form-control" [formControl]="textControl" style="width:170px; display:inline">
-      </div>
-      <div *ngIf="fahrzeugHausnummer">
-        <input type="text" class="form-control" [formControl]="textControl" maxlength="4" style="width:25px;  display:inline; margin-left:408px; margin-top: -5px; text-transform: uppercase;">
-      </div>
-      <div *ngIf="fahrzeugWohnort">
-        <input type="text" class="form-control" [formControl]="textControl"  style="width:368px; display:inline;" onblur="">
-      </div>
-      <div *ngIf="fahrzeugPLZ">
-        <input type="text" class="form-control" [formControl]="textControl" maxlength="5" style="width:40px; margin-top:-10em; margin-left:607px;  display:inline;" onblur="">
-      </div>
-      <div *ngIf="textControl.invalid && isParentTouched(textControl.parent) && isRequired"
+              <input  type="text"
+                      #fahr="ngModel"
+                      required
+                      [(ngModel)]="valeur"
+                      class="form-control {{cssValue}}"
+                      (change)="update()"> {{unit}}
+
+      <div *ngIf="fahr.invalid && (fahr.dirty || fahr.touched || submittedAlready) && isRequired"
         class="errors" style="color: #a31f42; width:25px; ">
          Wert erforderlich
      </div>
- </span>
+
 </div>
 

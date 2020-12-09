@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 import {FormGroup} from '@angular/forms';
 
 @Component({
@@ -9,12 +9,15 @@ import {FormGroup} from '@angular/forms';
 })
 export class FahrzeugangabenComponent implements OnInit {
 
-  @Input() fahrzeuganbagenForm: FormGroup;
+  @Input()fahrzeuganbagen;
 
   selectedZulassungsbezirk:string;
   zulassungsbezirk:any;
   selectedErstbesitz:string;
   erstbesitz:any;
+
+  @Input()submittedAlready:boolean;
+
   constructor(public kvzVersicherungService: KvzVersicherungService) { }
 
   ngOnInit() {

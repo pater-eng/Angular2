@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -10,6 +10,7 @@ export class RadioComponent implements OnInit {
 
   public static numero: number = 0;
   currentEntry: number;
+  localNgModel: any;
 
   @Input() labelText:string;
   @Input() radioString:string;
@@ -17,22 +18,19 @@ export class RadioComponent implements OnInit {
   @Input() isRequired:boolean;
   @Input() beschreibung = [];
 
-  @Input() radioControl: FormControl;
+  @Input() valeur: boolean;
+  @Input() submittedAlready: boolean;
+  @Output() valeurChange = new EventEmitter<boolean>();
 
   constructor() {
-    this.currentEntry = RadioComponent.numero++; //Jedes einzele radio kann selectiert werden
-  }
-
-  // Rekursion wird geguckt, ob bei direkte Eltern oder indirekte Eltern getouched wurde. Danach wird aktiviert oder deaktiviert.
-  isParentTouched(localparent: FormGroup | FormArray){
-    if(localparent.parent != null){
-      return this.isParentTouched(localparent.parent);
-    }
-    return localparent.touched;
+    this.currentEntry = ++RadioComponent.numero; //Jedes einzele Radio kann unabhängig von andere Radio selectiert werden.
   }
 
   ngOnInit() {
 
+  }
+  update() {
+    this.valeurChange.emit(this.valeur);
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -12,17 +12,14 @@ export class CheckboxComponent implements OnInit {
   @Input() isFragezeichen:boolean;
   @Input() isRequired:boolean;
 
-  @Input() checkboxControl: FormControl;
+  @Input() valeur: boolean;
+  @Input() submittedAlready: boolean;
+  @Output() valeurChange = new EventEmitter<boolean>();
   constructor() { }
 
-  isParentTouched(localparent: FormGroup | FormArray){
-    if(localparent.parent != null){
-      return this.isParentTouched(localparent.parent);
-    }
-    return localparent.touched;
+   ngOnInit() {
   }
-
-  ngOnInit() {
+  update() {
+    this.valeurChange.emit(this.valeur);
   }
-
 }

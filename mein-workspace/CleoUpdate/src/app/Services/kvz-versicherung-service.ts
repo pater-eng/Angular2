@@ -5,113 +5,15 @@ import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {ArrayObservable} from 'rxjs/observable/ArrayObservable';
 
+export class BestehenderVertrag {
 
-
-export class KvzVersicherung {
-
+  versicherungsgesellschafte_ein:string='';
+  versicherungscheinNr: string;
   vertragsbeginn:Date;
   vertragende:Date;
-  vertragsbeginnNeuvertrag:Date;
-  fuehrerscheindatum:Date;
-  versicherungscheinNr:number = 12236564;
   beitragBrutto:number;
-  kennzeichen1:number;
-  kennzeichen2:number;
-  kennzeichen3:number;
-  erstzulassungsdatum: Date;
-  datumFahrzeugerwerb: Date;
-
-  kFZSuchfeld: string;
-  herstellerNr:number;
-  typschluesselNr:number;
-  fahrzeugmarke:string;
-  fahrzeugtyp:string;
-  fahrgestellNr:number;
-  aktuellerKilometerstand:number;
-  fahrzeugneuwert:number;
-  derzeitigerFahrzeugwert:number;
-  sonderausstattungen:number;
-  jaehrlicheFahrleistung:number;
-  vnHauptnutzer:boolean;
-  vnFahrer:boolean;
-  begleitetesFahrer:boolean;
-  eintragVerkehrszentralregister:boolean;
-  zweitwagen:boolean;
-  existenzgruender:boolean;
-  euFuehrerschein:boolean;
-  betriebsausgabe:boolean;
-  vnSteuerabzugsberechtig:boolean;
-  saisonKennzeichen:boolean;
-  vorschaedenLetztenDreiJahren:boolean;
-  vorname:string;
-  nachname:string;
-  ort:string;
-  postleitzahl:number;
-  firmenname:string;
-  sicherheitsTraining:Date;
-  gebutsdatum:Date;
-  strasse:string;
-  hausnummer:string;
-  familie:boolean;
-  nutzerLebtInHaeuslicherGemeinschaftMitVN:any;
-  hatDerNutzerSeinenFuehrerscheinInEinemLandDerEUErworben:boolean;
-  nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessen:boolean;
-  wohnsitzSeitMind10JahrenInBRD:boolean;
-  sicherheitstrainingAbsolviert:boolean;
-  begleitetesFahrenBeiNutzer:boolean;
-  eintragImVerkehrszentralregister:boolean;
-  istEinHauptnutzer:boolean;
-  versicherungsgesellschaftAnschreiben:boolean;
-  einzugsermaechtigungsverfahren:boolean;
-  eVBueErstellungVersicherer:boolean;
-  eVBErstellt:boolean;
-
-
-  versicherungsnehmern : {id:number,name:string}[] =[
-    {id:1, name:'Max Mustermann'},
-    {id:2, name:'Maxime Mustermann'},
-    {id:3, name:'Kind Andy Mustermann'},
-    {id:4, name:'Max und Maxime Mustermann'}
-  ];
-
-  zahlweise=[
-    {id:1,name:'Bitte wählen Sie'},
-    {id:1, name:'monatlich'},
-    {id:2,name:'1/4 jährlich'},
-    {id:3, name:'1/2 jährlich'},
-    {id:4 , name:'jährlich'}
-  ];
-
-  geschaeftsvorfall : {id:number,name:string}[]=[
-    {id:1,name:'Bitte wählen Sie'},
-    {id:1, name:'Fahrzeugwechsel'},
-    {id:2, name:'Versichererwechsel'},
-    {id:3, name:'Zweitwagenregelung'},
-    {id:4, name:'Änderunggsantrag'}
-  ];
-
-  zahlweiseneuvertraege=[
-    {id:1,name:'Bitte wählen Sie'},
-    {id:1, name:'monatlich'},
-    {id:2,name:'1/4 jährlich'},
-    {id:3, name:'1/2 jährlich'},
-    {id:4 , name:'jährlich'}
-  ];
-
-  kuendigung=[
-    {id:1,name:'Bitte wählen Sie'},
-    {id:1,name:'Durch Versicherer gekündigt'},
-    {id:2,name:'Durch VN geküpndigt'}
-  ];
-
-  tarifgruppe=[
-    {id:1,name:'Bitte wählen Sie'},
-    {id:1,name:'Beamte/Angestellte im Öffentlichen Dienst'},
-    {id:2, name:'Beamte auf lebenszeit'},
-    {id:3,name:'Privatperson'},
-    {id:4,name:'Selbststandige/Freiberufler'},
-    {id:5,name:'Agrarier'}
-  ];
+  zahlweise_ein:string='';
+  kuendigung_ein:string='';
 
   versicherungsgesellschafte =[
     {id:1,name:'Bitte wählen Sie'},
@@ -232,6 +134,190 @@ export class KvzVersicherung {
 
   ];
 
+
+  zahlweise=[
+    {id:1,name:'Bitte wählen Sie'},
+    {id:1, name:'monatlich'},
+    {id:2,name:'1/4 jährlich'},
+    {id:3, name:'1/2 jährlich'},
+    {id:4 , name:'jährlich'}
+  ];
+
+  kuendigung=[
+    {id:1,name:'Bitte wählen Sie'},
+    {id:1,name:'Durch Versicherer gekündigt'},
+    {id:2,name:'Durch VN geküpndigt'}
+  ];
+
+
+
+}
+
+export class Deckungsumfang {
+
+  schadensfreiheitsrabatt_Haftpflicht_ein:string='';
+  sFRegelung_ein:string='';
+  kasko_und_selbstbeteiligung_ein:string='';
+  deckungssummen_in_der_Kfz_Haftpflicht_ein:string='';
+  schutzbriefleistungen_ein:string='';
+  verbesserte_zweitwagenregelung_fuer_PKW_ein:string='';
+  rabattschutz_ein:string='';
+  rabattretter_fuer_PKW_ein:string='';
+  fahrerschutz_ein:string='';
+  werkstattbindung_ein:string='';
+  auslandsschutz_ein:string='';
+  rabattuebertragung_ein:string='';
+  mallorcapolice_ein:string='';
+  gAP_Deckung_ein:string='';
+
+}
+
+export class FahrzeugAngaben {
+  kennzeichen1:number | string;
+  kennzeichen2:number | string;
+  kennzeichen3:number | string;
+  zulassungsbezirk_ein:string='';
+  erstzulassungsdatum: Date;
+  datumFahrzeugerwerb: Date;
+  erstbesitz_ein:string='';
+  kFZSuchfeld: string;
+  herstellerNr:number;
+  typschluesselNr:number;
+  fahrzeugmarke:string;
+  fahrzeugtyp:string;
+  fahrgestellNr:number;
+  aktuellerKilometerstand:number;
+  fahrzeugneuwert:number;
+  derzeitigerFahrzeugwert:number;
+  sonderausstattungen:number;
+}
+
+export class NutzerProfil {
+
+  nutzer =  new Nuzter();
+
+  nutzung_ein:string='';
+  jaehrlicheFahrleistung:number;
+  nutzerkreis_ein:string='';
+  vnHauptnutzer:boolean;
+  vnFahrer:boolean;
+  begleitetesFahrer:boolean;
+  eintragVerkehrszentralregister:boolean;
+  zweitwagen:boolean;
+  abstellplatz_ein:string='';
+  wohneigentum_ein:string='';
+  existenzgruender:boolean;
+  euFuehrerschein:boolean;
+  betriebsausgabe:boolean;
+  finanzierungsart_ein:string='';
+  vnSteuerabzugsberechtig:boolean;
+  nutzung_im_Ausland_ein:string='';
+  saisonKennzeichen:boolean;
+  vorschaedenLetztenDreiJahren:boolean;
+
+}
+export class Nuzter {
+  anrede_ein:string='';
+  vorname:string;
+  nachname:string;
+  ort:string;
+  postleitzahl:number;
+  bezug_ein:string='';
+  berufsgruppe_ein:string='';
+  familienstand_ein:string='';
+  familie:boolean;
+  nutzerLebtInHaeuslicherGemeinschaftMitVN:boolean;
+  fuehrerscheindatum:Date = new Date();
+  hatDerNutzerSeinenFuehrerscheinInEinemLandDerEUErworben:boolean;
+  nutzerHatDenFuehrerscheinInDenLetzten10JahrenDurchgehendBesessen:boolean;
+  wohnsitzSeitMind10JahrenInBRD:boolean;
+  sicherheitstrainingAbsolviert_ein:Date;
+  nutzung_ein:string='';
+  begleitetesFahrenBeiNutzer:boolean;
+  eintragImVerkehrszentralregister:boolean;
+  istEinHauptnutzer:boolean;
+}
+
+export class FahrzeugKind {
+  anrede_ein:string='';
+  familienstand_ein:string='';
+  vorname:string;
+  nachname:string;
+  berufsgruppe_ein:string='';
+  strasse:string;
+  hausnummer:string;
+  firmenname:string;
+  ort:string;
+  postleitzahl:number;
+  geburtsdatum:Date;
+  branche_ein:string='';
+
+}
+export class KvzVersicherung {
+
+  bestehenderVertrag =  new BestehenderVertrag();
+  deckungsumfang = new Deckungsumfang();
+  fahrzeugAngaben =  new FahrzeugAngaben();
+  nutzerProfil =  new NutzerProfil();
+  fahrzeugKind =  new FahrzeugKind();
+
+
+  vertragsbeginnNeuvertrag:Date;
+  fuehrerscheindatum:Date;
+  sicherheitsTraining:Date;
+
+
+  sicherheitstrainingAbsolviert:boolean;
+  versicherungsgesellschaftAnschreiben:boolean;
+  einzugsermaechtigungsverfahren:boolean;
+  eVBueErstellungVersicherer:boolean;
+  eVBErstellt:boolean;
+  versicherungsnehmer: string = '';
+  geschaeftsvorfall: string = '';
+  zahlweiseneuvertrag: string = '';
+  tarifgruppe_ein: string = '';
+  branche_ein:string='';
+  fahrzeughalter_ein:string='';
+  kuendigung_ein:string='';
+  schadensfreiheitsrabatt:string='';
+  berufsgruppe_ein: string='';
+
+
+
+  versicherungsnehmern : {id:number,name:string}[] =[
+    {id:1, name:'Max Mustermann'},
+    {id:2, name:'Maxime Mustermann'},
+    {id:3, name:'Kind Andy Mustermann'},
+    {id:4, name:'Max und Maxime Mustermann'}
+  ];
+
+
+  geschaeftsvorfaelle : {id:number,name:string}[]=[
+    {id:1, name:'Fahrzeugwechsel'},
+    {id:2, name:'Versichererwechsel'},
+    {id:3, name:'Zweitwagenregelung'},
+    {id:4, name:'Änderunggsantrag'}
+  ];
+
+  zahlweiseneuvertraege=[
+    {id:1,name:'Bitte wählen Sie'},
+    {id:1, name:'monatlich'},
+    {id:2,name:'1/4 jährlich'},
+    {id:3, name:'1/2 jährlich'},
+    {id:4 , name:'jährlich'}
+  ];
+
+
+  tarifgruppe=[
+    {id:1,name:'Bitte wählen Sie'},
+    {id:1,name:'Beamte/Angestellte im Öffentlichen Dienst'},
+    {id:2, name:'Beamte auf lebenszeit'},
+    {id:3,name:'Privatperson'},
+    {id:4,name:'Selbststandige/Freiberufler'},
+    {id:5,name:'Agrarier'}
+  ];
+
+
   brancheVN=[
     {id:1,name:'Bitte wählen Sie'},
     { id:1 ,name:'Bildung Wissenschaft Forschung Entiwicklung Kultur'},
@@ -307,16 +393,15 @@ export class KvzVersicherung {
 
   fahrzeughalter=[
     { id:1 ,name:'Versicherungsnehmer'},
+    { id:1 ,name:'Sonstiges'},
     { id:1 ,name:'Ehepartner in häuslicher Gemeinschaft '},
     { id:1 ,name:'Lebenspartner in häuslicher Gemeinschaft'},
     { id:1 ,name:'behindertes Kind '},
     { id:1 ,name:'behinderter Elternteil des VN '},
     { id:1 ,name:'Werksangehöriger eines Autoherstellers/-importeurs'},
+    { id:1 ,name:'Firmeninhaber'},
     { id:1 ,name:'Firma'},
-    /*
-  <option value="FIRMENINHABER">Firmeninhaber</option>
-      <option value="FIRMA">Firma</option>
-      <option value="LEASINGGEBER"*/
+    { id:1 ,name:'Leasinggeber'},
   ];
 
 
@@ -478,7 +563,6 @@ export class KvzVersicherung {
     { id:4,name:'Tageszulassung Bis 1000 km'},
   ];
   zulassungsbezirk=[
-    {id:1, name:'Bitte wählen Sie'},
 
   ];
 
@@ -577,15 +661,15 @@ export class KvzVersicherungService {
   }
 
   public getVersicherungsgesellschafte(){
-    return of(this.kvzVersicherung.versicherungsgesellschafte);
+    return of(this.kvzVersicherung.bestehenderVertrag.versicherungsgesellschafte);
   }
 
   public getVersicherunsnehmern()
   {
     return of(this.kvzVersicherung.versicherungsnehmern);
   }
-  public getGeschaefstvorfall(){
-    return of(this.kvzVersicherung.geschaeftsvorfall);
+  public getGeschaefstvorfaelle(){
+    return of(this.kvzVersicherung.geschaeftsvorfaelle);
 
   }
 
@@ -594,14 +678,14 @@ export class KvzVersicherungService {
   }
 
   public getKuendigung(){
-    return of(this.kvzVersicherung.kuendigung);
+    return of(this.kvzVersicherung.bestehenderVertrag.kuendigung);
   }
   public getTarifgruppe(){
     return of(this.kvzVersicherung.tarifgruppe);
   }
 
   public getZahlweise(){
-    return of(this.kvzVersicherung.zahlweise);
+    return of(this.kvzVersicherung.bestehenderVertrag.zahlweise);
   }
   public getBrancheVN(){
     return of(this.kvzVersicherung.brancheVN);

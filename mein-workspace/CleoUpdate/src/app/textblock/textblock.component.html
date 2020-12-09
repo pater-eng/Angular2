@@ -1,21 +1,22 @@
       <div class="editdiv">
-        <label for="kennzeichenBlock1" class="edit required">
+        <label  class="edit required">
           {{labelText}}
         </label>
         <span class="value ">
           <span style="display:inline">
-                  <input id="kennzeichenBlock1" type="text"
-                         name="kennzeichenBlock1"
-                         class="kennzeichenBlock1" maxlength="3" [formControl]="textblockControl"
+                  <input  type="text" maxlength="3"  #fahr="ngModel"
+                          [(ngModel)]="valeur_1" required
+                          class="form-control" (change)="update_1()"
                          style="width:25px; float: left; text-transform: uppercase;">
                 <span style="padding-right:3px;"> - </span>
-                <input id="kennzeichenBlock2" type="text" [formControl]="textblockControl"
-                       name="kennzeichenBlock2" class="kennzeichenBlock2"
-                       maxlength="2"  style="width:25px; text-transform: uppercase;">
-                <input id="kennzeichenBlock3" type="text" name="kennzeichenBlock3" [formControl]="textblockControl"
-                       class="kennzeichenBlock3" maxlength="4"  style="width:40px">
+                <input  type="text" required
+                       #fahr="ngModel" [(ngModel)]="valeur_2" class="form-control" (change)="update_2()"
+                        maxlength="2"  style="width:25px; text-transform: uppercase;">
+                <input  #fahr="ngModel" [(ngModel)]="valeur_3" class="form-control" (change)="update_3()"
+                        type="text" name="kennzeichenBlock3" required
+                        maxlength="4"  style="width:40px">
 
-             <div *ngIf="textblockControl.invalid && isParentTouched(textblockControl.parent) && isRequired"  class="errors" style="color: #a31f42;">
+             <div *ngIf="fahr.invalid && (fahr.dirty || fahr.touched || submittedAlready) && isRequired"  class="errors" style="color: #a31f42;">
                 Wert erforderlich
             </div>
 

@@ -169,5 +169,21 @@ input[type="checkbox" i] {
 .style{
   display: inline;
 }
+.form-control.kleine{
+  width:170px;
+}
+.form-control.fahrzeugHausnummer{
+  maxlength:"4";
+  width:25px; text-transform: uppercase;
+}
+.form-control.fahrzeugWohnort{
+  width:368px;
+}
+.form-control.fahrzeugPLZ{
+  maxlength:"5";
+  width:40px;
+}
+
+
 
 

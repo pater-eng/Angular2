@@ -187,4 +187,14 @@ input[type="checkbox" i] {
   cursor: default;
 }
 
+.radio-inline{
+  display: inline-block;
+  vertical-align: top;
+}
+/*.errors.notValide{
+  position: absolute;
+  left: 30px;
+
+}*/
+
 

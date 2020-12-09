@@ -6,9 +6,13 @@
         {{labelText}}
       </label>
             <span class="value ">
-                  <input id="vgCheckBox" type="checkbox" name="vgCheckBox" [formControl]="checkboxControl" checked="checked">
-                     <div *ngIf="checkboxControl.invalid && isParentTouched(checkboxControl.parent) && isRequired"  class="errors" style="color: #a31f42;">
-                          Wert erforderlich
+                  <input id="vgCheckBox"
+                         #fahr="ngModel"
+                         [(ngModel)]="valeur" class="form-control" required
+                         (change)="update()"
+                        type="checkbox" name="vgCheckBox" checked="checked">
+                     <div *ngIf=" fahr.invalid && (fahr.dirty || fahr.touched || submittedAlready) && isRequired"  class="errors" style="color: #a31f42;">
+                            Wert erforderlich
                     </div>
             </span>
 

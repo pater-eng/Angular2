@@ -82,11 +82,12 @@ edit.required{
 .editdiv select{
   line-height: 20px;
 }
-.editdiv input{
+.editdiv {
   background-color: #eef0f1;
   border: 1px solid #e0e1e2;
   line-height: 20px;
 }
+
 input{
   width: 418px;
   margin-right: 4px;
@@ -142,7 +143,7 @@ select{
 .content img {
   border: 0px;
 }
-.infoImage{
+.infoImage {
   float: left;
   margin-top: 3px;
 }
@@ -165,6 +166,9 @@ input[type="checkbox" i] {
   box-sizing: border-box;
   background-color: initial;
   cursor: default;
+}
+.style{
+  display: inline;
 }
 
 

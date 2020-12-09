@@ -1,6 +1,6 @@
 import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
+import {KvzVersicherung, KvzVersicherungService} from '../Services/kvz-versicherung-service';
 
 @Component({
   selector: 'app-nutzer',
@@ -9,9 +9,11 @@ import {KvzVersicherungService} from '../Services/kvz-versicherung-service';
 })
 export class NutzerComponent implements OnInit {
 
-  @Input() nutzerForm: FormGroup;
-  // damit werden die Info an Parent geschickt
+ @Input() nutzer;
+  // damit werden die Info an Parent geschickt, damit der Nutzer gelöscht wird
   @Output() entfernenVon = new EventEmitter();
+
+  @Input()submittedAlready:boolean;
 
   selectedAnrede:string;
   anrede:any;
@@ -26,9 +28,6 @@ export class NutzerComponent implements OnInit {
   bezugVN:any;
   selectedBezugVN:string;
 
-/*  entfernNutzer:string;
-  entfernPerson:boolean=true;*/
-
 
   constructor(public kvzVersicherungService: KvzVersicherungService) { }
 
@@ -39,11 +38,6 @@ export class NutzerComponent implements OnInit {
     this.getFamilienstand();
     this.getBezugVN();
   }
-
- /* public toggleEntfernePerson(hide){
-      this.entfernNutzer = "Nutzer"
-    this.entfernPerson = !hide;
-  }*/
 
   public getAnrede(){
     this.kvzVersicherungService.getAnrede().subscribe(data=>{

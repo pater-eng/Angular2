@@ -3,15 +3,22 @@
      <span *ngIf="isFragezeichen">
           <img id="infoSymbol" src="/assets/images/info.png" class="infoImage">
        </span>
-                  <label class="edit {{!isRequired ? '' : 'required'}}" >
-                      {{labelText}}
-                   </label>
+            <label class="edit {{!isRequired ? '' : 'required'}}" >
+                {{labelText}}
+             </label>
             <span class="value">
-              <span id="vertragsbeginnPopup">
-                  <input  type="date" style="vertical-align: middle;>
-                        <img alt=" id="vertragsbeginnPopupButton" [formControl]="datefeldControl">
-                 <div *ngIf="datefeldControl.invalid && isParentTouched(datefeldControl.parent) && isRequired"  class="errors" style="color: #a31f42;">
-                          Wert erforderlich
+              <span>
+                  <input  #fahr="ngModel"
+                          required
+                          class="form-control"
+                          [(ngModel)]="valeur"
+                          (change)="update()"
+                          type="date"
+                          style="vertical-align: middle;">
+
+                 <div *ngIf=" fahr.invalid && (fahr.dirty || fahr.touched || submittedAlready)&& isRequired"
+                      class="errors" style="color: #a31f42;">
+                            Wert erforderlich
                     </div>
               </span>
             </span>

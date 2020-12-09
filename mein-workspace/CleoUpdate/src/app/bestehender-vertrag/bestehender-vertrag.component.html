@@ -19,23 +19,32 @@
   </div>
 
   <div  *ngIf="!neuvertrag" class="panel-body ">
-    <div>
+  <div>
 
       <!-- Versicherungsgesellschaften -->
-      <app-combobox [labelText]="'Versicherungsgesellschaft'" [listValues]="versicherungsgeselschaft"
-                    [isRequired]="true" [comboboxControl]="bestehenderVertragForm.get('versicherungsgesellschaftGroup')">
-
+      <app-combobox [labelText]="'Versicherungsgesellschaft'"
+                    [listValues]="versicherungsgeselschaft"
+                    [isRequired]="true"
+                    name="versicherungsgeselschaft"
+                    [(valeur)]="bestehenderVertrag.versicherungsgesellschafte_ein"
+                    [submittedAlready]="submittedAlready">
       </app-combobox>
 
       <!-- versicherungsscheinnummer -->
 
-      <app-textfeld [labelText]="'Versicherungsschein-Nr.'" [normal]="true" [textControl]="bestehenderVertragForm.get('versicherungscheinNrGroup')" >
+      <app-textfeld [labelText]="'Versicherungsschein-Nr.'"
+                    name="versicherungscheinNr"
+                    [(valeur)]="bestehenderVertrag.versicherungscheinNr"
+                    [submittedAlready]="submittedAlready" >
       </app-textfeld>
 
       <!-- Vertragsbeginn -->
 
-<app-datefeld [labelText]="'Vertragsbeginn'"  [isRequired]="true"
-              [datefeldControl]="bestehenderVertragForm.get('vertragsbeginnGroup')">
+<app-datefeld [labelText]="'Vertragsbeginn'"
+              [isRequired]="true"
+              name="vertragsbeginn"
+              [(valeur)]="bestehenderVertrag.vertragsbeginn"
+              [submittedAlready]="submittedAlready">
 
 </app-datefeld>
 
@@ -43,28 +52,45 @@
 
 <app-datefeld [labelText]="'Vertragsende'"
               [isRequired]="true"
-              [datefeldControl]="bestehenderVertragForm.get('vertragsendeGroup')">
+              name="vertragende"
+              [(valeur)]="bestehenderVertrag.vertragende"
+              [submittedAlready]="submittedAlready">
 </app-datefeld>
 
-<app-textfeld [unit]="'€'" [labelText]="'Beitrag brutto (gem. Zahlweise)'" name="beitragBrutto" [normal]="true"
-              [isRequired]="true" [textControl]="bestehenderVertragForm.get('beitragBruttoGroup')">
+<app-textfeld [unit]="' €'"
+              [labelText]="'Beitrag brutto (gem. Zahlweise)'"
+              name="beitragBrutto"
+              [isRequired]="true"
+              [(valeur)]="bestehenderVertrag.beitragBrutto"
+              [submittedAlready]="submittedAlready">
 </app-textfeld>
 
 <!-- Zahlweise -->
 
-<app-combobox [labelText]="'Zahlweise'" [listValues]="zahlweise" [isRequired]="true"
-              [comboboxControl]="bestehenderVertragForm.get('zahlweiseGroup')">
+<app-combobox [labelText]="'Zahlweise'"
+              [listValues]="zahlweise"
+              [isRequired]="true"
+              name="zahlweise"
+              [(valeur)]="bestehenderVertrag.zahlweise_ein"
+              [submittedAlready]="submittedAlready">
 </app-combobox>
 
 <!-- Kündigung -->
-<app-combobox [labelText]="'Kündigung'" [listValues]="kuendigung"
-              [isRequired]="true" [comboboxControl]="bestehenderVertragForm.get('kuendigungGroup')">
+<app-combobox [labelText]="'Kündigung'"
+              [listValues]="kuendigung"
+              name="kuendigung"
+              [isRequired]="true"
+              [(valeur)]="bestehenderVertrag.kuendigung_ein"
+              [submittedAlready]="submittedAlready">
 </app-combobox>
 
 <!-- Versicherungsgesellschaft anschreiben? -->
 
 <app-checkbox [labelText]="'Versicherungsgesellschaft anschreiben?'"
-                [isFragezeichen]="true" [checkboxControl]="bestehenderVertragForm.get('versicherungsgesellschaftAnschreiben')">
+              [isFragezeichen]="true"
+              name="versicherungsgesellschaftAnschreiben"
+              [submittedAlready]="submittedAlready"
+              [(valeur)]="bestehenderVertrag.versicherungsgesellschaftAnschreiben">
 </app-checkbox>
 
 </div>

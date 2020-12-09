@@ -5,95 +5,126 @@
 
                <app-combobox [labelText]="' Schadensfreiheitsrabatt Haftpflicht'"
                              [listValues]="schadensfreiheitsrabatte"
-                             [isRequired]="true" [comboboxControl]="deckungsumfangForm.get('schadensfreiheitsrabattHaftpflichtGroup')">
+                             [isRequired]="true"
+                              name="schadensfreiheitsrabatte"
+                             [(valeur)]="deckungsumfang.schadensfreiheitsrabatt_Haftpflicht_ein"
+                             [submittedAlready]="submittedAlready">
 
                </app-combobox>
 
               <app-combobox [labelText]="'SF-Regelung'"
                             [listValues]="sFRegelungen"
-                            [comboboxControl]="deckungsumfangForm.get('sFRegelungGroup')">
+                             name="sFRegelungen"
+                            [(valeur)]="deckungsumfang.sFRegelung_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Kasko und Selbstbeteiligung'"
                             [listValues]="kasko_und_selbstbeteiligungen"
                             [isRequired]="true"
-                            [comboboxControl]="deckungsumfangForm.get('kaskoSelbstbeteiligungGroup')">
+                            name="kasko_und_selbstbeteiligungen"
+                            [(valeur)]="deckungsumfang.kasko_und_selbstbeteiligung_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Deckungssummen in der Kfz-Haftpflicht'"
                             [listValues]="deckungssummer_in_derk_kfz_haftpflicht"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('deckungssummenKfzHaftpflichtGroup')">
+                             name="deckungssummer_in_derk_kfz_haftpflicht"
+                            [(valeur)]="deckungsumfang.deckungssummen_in_der_Kfz_Haftpflicht_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Schutzbriefleistungen'"
                             [listValues]="schutzbriefleistungen"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('schutzbriefleistungenGroup')">
+                             name="schutzbriefleistungen"
+                            [(valeur)]="deckungsumfang.schutzbriefleistungen_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Verbesserte Zweitwagenregelung für PKW'"
                             [listValues]="verbesserte_zweitwagenregelegung_fuer_pkw"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('verbesserteZweitwagenregelungPKWGroup')">
+                             name="verbesserte_zweitwagenregelegung_fuer_pkw"
+                            [(valeur)]="deckungsumfang.verbesserte_zweitwagenregelung_fuer_PKW_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
-              <app-combobox [labelText]="'Rabattschutz'" [listValues]="rabattschutz"
+              <app-combobox [labelText]="'Rabattschutz'"
+                            [listValues]="rabattschutz"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('rabattschutzGroup')">
+                            name="rabattschutz"
+                            [(valeur)]="deckungsumfang.rabattschutz_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Rabattretter für PKW'"
                             [listValues]="rabattretter_fuer_pkw"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('rabattretterPKWGroup')">
+                            name="rabattretter_fuer_pkw"
+                            [(valeur)]="deckungsumfang.rabattretter_fuer_PKW_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
-              <app-combobox [labelText]="'Fahrerschutz'" [listValues]="fahrerschutz"
+              <app-combobox [labelText]="'Fahrerschutz'"
+                            [listValues]="fahrerschutz"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('fahrerschutzGroup')">
+                            name="fahrerschutz"
+                            [(valeur)]="deckungsumfang.fahrerschutz_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Werkstattbindung'"
                             [listValues]="werksattbindungen"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('werkstattbindungGroup')">
+                            name="werksattbindungen"
+                            [(valeur)]="deckungsumfang.werkstattbindung_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Auslandsschutz'"
                             [listValues]="auslandsschutzen"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('auslandsschutzGroup')">
+                            name="auslandsschutzen"
+                            [(valeur)]="deckungsumfang.auslandsschutz_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Rabattübertragung'"
                             [listValues]="rabattuebertragungen"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('rabattuebertragunggroup')">
+                            name="rabattuebertragungen"
+                            [(valeur)]="deckungsumfang.rabattuebertragung_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'Mallorcapolice'"
                             [listValues]="mallorcapolice"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('mallorcapoliceGroup')">
+                            name="mallorcapolice"
+                            [(valeur)]="deckungsumfang.mallorcapolice_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 
               <app-combobox [labelText]="'GAP Deckung'"
                             [listValues]="gap_deckung"
                             [isFragezeichen]="true"
-                            [comboboxControl]="deckungsumfangForm.get('gAPDeckungGroup')">
+                            name="gap_deckung"
+                            [(valeur)]="deckungsumfang.gAP_Deckung_ein"
+                            [submittedAlready]="submittedAlready">
 
               </app-combobox>
 

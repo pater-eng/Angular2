@@ -1,124 +1,240 @@
 <div class="panel ">
     <div class="panel-body " id="body">
 
-      <div>
         <div *ngIf="choice == 'Ehepartner in häuslicher Gemeinschaft' || choice == 'Lebenspartner in häuslicher Gemeinschaft'
-                    || choice == 'behindertes Kind' || choice == 'Sonstige' || choice == 'behinderter Elternteil des VN'
+                    || choice == 'behindertes Kind' || choice == 'Sonstiges'  || choice == 'Firmeninhaber' || choice == 'behinderter Elternteil des VN'
                     || choice == 'Werksangehöriger eines Autoherstellers/-importeurs'">
+
                 <app-combobox [labelText]="'Anrede'"
                               [isRequired]="true"
                               [listValues]="anrede"
-                              [comboboxControl]="fahrzeugKindForm.get('anredeKindGroup')">
+                              name="anrede"
+                              [(valeur)]="fahrzeugKind.anrede_ein"
+                              [submittedAlready]="submittedAlready">
                 </app-combobox>
-                <app-combobox [labelText]="'Familienstand'"  [listValues]="familienstand" [isRequired]="true"
-                              [comboboxControl]="fahrzeugKindForm.get('familienstandKindGroup')">
+                <app-combobox [labelText]="'Familienstand'"
+                              [listValues]="familienstand"
+                              [isRequired]="true"
+                              name="familienstand"
+                              [(valeur)]="fahrzeugKind.familienstand_ein"
+                              [submittedAlready]="submittedAlready">
                 </app-combobox>
-                <app-textfeld [labelText]="'Vorname'"
-                              [isRequired]="true"
-                              [fahrzeugKind]="true"
-                              [textControl]="fahrzeugKindForm.get('vornameKindGroup')">
+          <div class="editdiv">
+              <app-textfeld [labelText]="'Vorname, Nachname'"
+                            [isRequired]="true"
+                            [cssValue]="'kleine'"
+                            name="vorname"
+                            [vorUndNachname]="true"
+                            [submittedAlready]="submittedAlready"
+                            [(valeur)]="fahrzeugKind.vorname">
 
-                </app-textfeld>
-                <app-textfeld [labelText]="'Nachname'"
-                              [isRequired]="true"
-                              [fahrzeugKind]="true"
-                              [textControl]="fahrzeugKindForm.get('nachnameKindGroup')">
+              </app-textfeld>
+              <app-textfeld
+                    [isRequired]="true"
+                    [cssValue]="'kleine'"
+                    name="nachname" class="relative"
+                    [submittedAlready]="submittedAlready"
+                    [(valeur)]="fahrzeugKind.nachname">
 
-                </app-textfeld>
+              </app-textfeld>
+
+          </div>
 
                 <app-combobox [labelText]="'Berufsgruppe'"
                               [isRequired]="true"
                               [listValues]="berufsgruppe"
-                              [comboboxControl]="fahrzeugKindForm.get('berufsgruppeKindGroup')">
+                               name="berufsgruppe"
+                              [(valeur)]="fahrzeugKind.berufsgruppe_ein"
+                              [submittedAlready]="submittedAlready">
                 </app-combobox>
-
-                <app-textfeld [labelText]="'Straße,'"
+          <div class="editdiv">
+                <app-textfeld [labelText]="'Straße, Hausnummer'"
                               [isRequired]="true"
-                              [fahrzeugKind]="true"
-                              [textControl]="fahrzeugKindForm.get('strasseKindGroup')">
+                              [cssValue]="'kleine'"
+                               name="strasse"
+                              [submittedAlready]="submittedAlready"
+                              [(valeur)]="fahrzeugKind.strasse">
 
                 </app-textfeld>
-                <app-textfeld [labelText]="'Hausnummer '"
-                              [textControl]="fahrzeugKindForm.get('hausnummerKindGroup')"
-                              [isRequired]="true"
-                              [fahrzeugHausnummer]="true">
+                <app-textfeld name="hausnummer"
+                              [cssValue]="'fahrzeugHausnummer'"
+                              [isRequired]="true" class="relative"
+                              [submittedAlready]="submittedAlready"
+                              [(valeur)]="fahrzeugKind.hausnummer">
 
                 </app-textfeld>
-                <app-textfeld [labelText]="'Wohnort,'"
+          </div>
+
+          <div class="editdiv">
+                <app-textfeld [labelText]="'Wohnort, PLZ'"
                               [isRequired]="true"
-                              [textControl]="fahrzeugKindForm.get('ortkindGroup')"
-                              [fahrzeugWohnort]="true">
+                               name="ort"
+                              [cssValue]="'fahrzeugWohnort'"
+                              [submittedAlready]="submittedAlready"
+                              [(valeur)]="fahrzeugKind.ort">
 
                 </app-textfeld>
-                <app-textfeld [labelText]="'PLZ'"
-                              [fahrzeugPLZ]="true"
-                              [textControl]="fahrzeugKindForm.get('postleitzahlKindGroup')"
+                <app-textfeld name="plz" class="relative"
+                              [cssValue]="'fahrzeugPLZ'"
+                              [submittedAlready]="submittedAlready"
+                              [(valeur)]="fahrzeugKind.postleitzahl"
                               [isRequired]="true" >
 
                 </app-textfeld>
 
-
+          </div>
                 <app-datefeld [labelText]="'Geburtsdatum'"
                               [isRequired]="true"
-                              [datefeldControl]="fahrzeugKindForm.get('geburtsdatumKindGroup')">
+                               name="geburtsdatum"
+                              [(valeur)]="fahrzeugKind.geburtsdatum"
+                              [submittedAlready]="submittedAlready">
 
                 </app-datefeld>
-
         </div>
-
+      <div class="panel-body ">
         <div *ngIf="choice =='Firma'">
 
               <app-combobox [labelText]="'Anrede'"
                             [isRequired]="true"
                             [listValues]="anrede"
-                            [comboboxControl]="fahrzeugKindForm.get('anredeKindGroup')">
+                             name="anrede"
+                            [(valeur)]="fahrzeugKind.anrede_ein"
+                            [submittedAlready]="submittedAlready">
               </app-combobox>
-              <app-textfeld [labelText]="'Firmenname'" [isRequired]="true"
-                            [textControl]="fahrzeugKindForm.get('firmennameKindGroup')" [fahrzeugKind]="true">
+              <app-textfeld [labelText]="'Firmenname'"
+                            [isRequired]="true"
+                             name="firmenname"
+                            [submittedAlready]="submittedAlready"
+                            [(valeur)]="fahrzeugKind.firmenname"
+                            >
 
               </app-textfeld>
 
               <app-combobox [labelText]="'Branche'"
                             [listValues]="branche"
                             [isRequired]="true"
-                            [comboboxControl]="fahrzeugKindForm.get('brancheKindGroup')">
+                             name="branche"
+                            [(valeur)]="fahrzeugKind.branche_ein"
+                            [submittedAlready]="submittedAlready">
               </app-combobox>
 
 
-              <app-textfeld [labelText]="'Straße,'+'Hausnummer'"
-                            [isRequired]="true"
-                            [textControl]="fahrzeugKindForm.get('strasseKindGroup')"
-                            [fahrzeugKind]="true"
+          <div class="editdiv">
+            <app-textfeld [labelText]="'Straße, Hausnummer'"
+                          [isRequired]="true"
+                          [cssValue]="'kleine'"
+                          name="strasse"
+                          [submittedAlready]="submittedAlready"
+                          [(valeur)]="fahrzeugKind.strasse">
 
-                            [textControl]="fahrzeugKindForm.get('hausnummerKindGroup')"
-                            [isRequired]="true" [fahrzeugHausnummer]="true">
+            </app-textfeld>
+            <app-textfeld name="hausnummer"
+                          [cssValue]="'fahrzeugHausnummer'"
+                          [isRequired]="true" class="relative"
+                          [submittedAlready]="submittedAlready"
+                          [(valeur)]="fahrzeugKind.hausnummer">
 
-              </app-textfeld>
-             <!-- <app-textfeld [labelText]="'Hausnummer '"[textControl]="fahrzeugKindForm.get('hausnummerKindGroup')"
-                            [isRequired]="true" [fahrzeugHausnummer]="true">
+            </app-textfeld>
+          </div>
 
-              </app-textfeld>-->
+          <div class="editdiv">
+            <app-textfeld [labelText]="'Wohnort, PLZ'"
+                          [isRequired]="true"
+                          name="ort"
+                          [cssValue]="'fahrzeugWohnort'"
+                          [submittedAlready]="submittedAlready"
+                          [(valeur)]="fahrzeugKind.ort">
 
-              <app-textfeld [labelText]="'Wohnort,'+'PLZ'"
-                            [isRequired]="true"
-                            [textControl]="fahrzeugKindForm.get('ortkindGroup')"
-                            [fahrzeugWohnort]="true"
+            </app-textfeld>
+            <app-textfeld name="plz" class="relative"
+                          [cssValue]="'fahrzeugPLZ'"
+                          [submittedAlready]="submittedAlready"
+                          [(valeur)]="fahrzeugKind.postleitzahl"
+                          [isRequired]="true" >
 
-                            [labelText]="'PLZ'"
-                            [isRequired]="true"
-                            [textControl]="fahrzeugKindForm.get('postleitzahlKindGroup')"
-                            [fahrzeugPLZ]="true">
+            </app-textfeld>
 
-              </app-textfeld>
-             <!-- <app-textfeld [labelText]="'PLZ'"
-                            [isRequired]="true"
-                            [textControl]="fahrzeugKindForm.get('postleitzahlKindGroup')"
-                            [fahrzeugPLZ]="true">
-
-              </app-textfeld>-->
-
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="panel-body ">
+        <div *ngIf="choice =='Leasinggeber'">
+          <app-combobox [labelText]="'Anrede'"
+                        [isRequired]="true"
+                        [listValues]="anrede"
+                        name="anrede"
+                        [(valeur)]="fahrzeugKind.anrede_ein"
+                        [submittedAlready]="submittedAlready">
+          </app-combobox>
+          <app-combobox [labelText]="'Familienstand'"
+                        [listValues]="familienstand"
+                        [isRequired]="true"
+                        name="familienstand"
+                        [(valeur)]="fahrzeugKind.familienstand_ein"
+                        [submittedAlready]="submittedAlready">
+          </app-combobox>
+          <app-textfeld [labelText]="'Vorname'"
+                        [isRequired]="true"
+
+                        name="vorname"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.vorname">
+
+          </app-textfeld>
+          <app-textfeld [labelText]="'Nachname'"
+                        [isRequired]="true"
+
+                        name="nachname"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.nachname">
+
+          </app-textfeld>
+
+          <app-combobox [labelText]="'Branche'"
+                        [listValues]="branche"
+                        [isRequired]="true"
+                        name="branche"
+                        [(valeur)]="fahrzeugKind.branche_ein"
+                        [submittedAlready]="submittedAlready">
+          </app-combobox>
+
+          <app-textfeld [labelText]="'Straße,'"
+                        [isRequired]="true"
+
+                        name="strasse"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.strasse">
+
+          </app-textfeld>
+          <app-textfeld [labelText]="'Hausnummer '"
+                        name="hausnummer"
+                        [isRequired]="true"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.hausnummer">
+
+          </app-textfeld>
+          <app-textfeld [labelText]="'Wohnort,'"
+                        [isRequired]="true"
+                        name="ort"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.ort">
+          </app-textfeld>
+          <app-textfeld [labelText]="'PLZ'"
+                        name="plz"
+                        [submittedAlready]="submittedAlready"
+                        [(valeur)]="fahrzeugKind.postleitzahl"
+                        [isRequired]="true" >
+          </app-textfeld>
+
+
+          <app-datefeld [labelText]="'Geburtsdatum'"
+                        [isRequired]="true"
+                        name="geburtsdatum"
+                        [(valeur)]="fahrzeugKind.geburtsdatum"
+                        [submittedAlready]="submittedAlready">
+          </app-datefeld>
+        </div>
+      </div>
+  </div>
 </div>
